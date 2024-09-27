@@ -300,15 +300,21 @@
 
 
     "Footer": {
+        "services":"Услуги",
         "Navigation": {
-            "ckdl": "ЦКДЛ",
-            "analyze": "Анализы",
-            "services": "Услуги",
+            "laboratory": "Лаборатория",
+            "consultation": "Консультации врачей",
+            "services_1": "Инструментальная диагностика",
+            "services_2": "Функциональная диагностика",
+            "about": "О нас",
             "doctors": "Врачи",
-            "addresses": "Адреса",
-            "about": "О нас"
+            "news": "Новости",
+            "contacts": "Контакты"
         },
+        "addresses": "Узбекистан, Ташкент,Алмазарский район, ул.Беруни, д.1",
+        "social": "Соц.сети",
         "results": "Результаты",
+        "telegram_info": "Подписывайтесь на наш блог в Telegram",
         "info": "Prime Medical Center. Все права защищены"
     },
     "Header": {
