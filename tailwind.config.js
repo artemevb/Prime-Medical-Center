@@ -38,7 +38,7 @@ module.exports = {
     extend: {
       fontFamily: {
         mulish: ['Mulish', 'sans-serif'],
-        marcellus: ['Marcellus', 'sans-serif'],
+        marcellus: ['Marcellus', 'serif']
       },
       boxShadow: {
         'custom-light': '0 0px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1)',

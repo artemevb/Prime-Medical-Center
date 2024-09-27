@@ -1,7 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.special-text {
-    font-family: 'Marcellus', sans-serif;
-}

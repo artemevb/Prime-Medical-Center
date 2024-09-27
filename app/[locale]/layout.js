@@ -8,9 +8,9 @@ import Footer from "@/app/[locale]/_components/Footer/Footer";
 export const metadata = {
   title: {
     template: "%s",
-    default: "Interlab Innovation"
+    default: "Prime Medical Center"
   },
-  description: "Intermed Innovation by Intermed"
+  description: "Prime Medical Center"
 }
 
 
