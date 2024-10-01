@@ -1,5 +1,9 @@
 import AboutCenter from "./AboutCenter";
 import About from "./About";
+import OurServices from "./OurServices";
+import Recommendations from "./Recommendations";
+import DoctorsSlider from "./DoctorsSlider";
+import SignUp from "./SignUp";
 
 export default function Main() {
 
@@ -12,6 +16,10 @@ export default function Main() {
       {/* <Equipments /> */}
       <AboutCenter />
       <About />
+      <OurServices />
+      <Recommendations />
+      <DoctorsSlider />
+      <SignUp />
       {/* <Scheme />
       <FullEquipment />
       <Sertificates />
