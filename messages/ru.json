@@ -386,5 +386,20 @@
             "text-3": "График работы",
             "text-4": "Эл.почта"
         }
+    },
+    "Services-pages": {
+        "OurServices": {
+            "title": "Список наших услуг",
+            "subtitle": "Ассортимент услуг гастроэнтерологического центра Prime Medical Center",
+            "subtitle-library": "Лаборатория",
+            "subtitle-library-text": "Огромное количество анализов в нашей лаборатории, от стандартных, до экслюзивных",
+            "subtitle-specialist-consultations": "Консультации специалистов",
+            "subtitle-specialist-consultations-text": "Квалифицированная помощь от гастроэнтеролога, педиатра, кардиолога, гинеколога, уролога, аллерголога и других врачей",
+            "subtitle-instrumental-diagnostics": "Инструментальная диагностика",
+            "subtitle-instrumental-diagnostics-text": "Команда наших специалистов безболезненно проведут гастроскопию, колоноскопию и другие эндоскопические процедуры",
+            "subtitle-functional-diagnostics": "Функциональная диагностика",
+            "subtitle-functional-diagnostics-text": "УЗИ, ЭКГ, ЭЭГ и другие услуги по оказанию функциональной диагностики",
+            "price": "Узнать цены"
+        }
     }
 }
