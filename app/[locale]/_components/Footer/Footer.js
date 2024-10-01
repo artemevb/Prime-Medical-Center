@@ -5,7 +5,7 @@ import Link from "next/link";
 import resultLogo from "@/public/svg/result-logo.svg";
 import Logo_Footer from "@/public/images/Logo_Footer.png";
 
-import instagram from "@/public/svg/social/instagram.svg";
+import instagram from "@/public/svg/social/Instagram.svg";
 import telegram from "@/public/svg/social/telergam.svg";
 import facebook from "@/public/svg/social/facebook.svg";
 import youtube from "@/public/svg/social/youtube.svg";
