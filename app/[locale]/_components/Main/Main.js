@@ -4,6 +4,7 @@ import OurServices from "./OurServices";
 import Recommendations from "./Recommendations";
 import DoctorsSlider from "./DoctorsSlider";
 import SignUp from "./SignUp";
+import Contacts from "./Contacts";
 
 export default function Main() {
 
@@ -19,7 +20,10 @@ export default function Main() {
       <OurServices />
       <Recommendations />
       <DoctorsSlider />
-      <SignUp />
+      <div className="mx-[10px]">
+        <SignUp />
+      </div>
+      <Contacts />
       {/* <Scheme />
       <FullEquipment />
       <Sertificates />

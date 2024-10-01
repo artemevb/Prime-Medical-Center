@@ -78,11 +78,11 @@ export default function ContAddress({ closeModal }) {
     };
 
     return (
-        <div className="bg-[#00863E] p-4 pb-9 mdx:px-[40px] lg:py-[40px] xl:px-[80px] 2xl:px-[120px] xl:py-[80px] relative">
-            <div className="flex max-xl:flex-col gap-12 max-lg:gap-8 mx-auto w-full h-auto max-w-[1440px] 5xl:max-w-[2000px]">
-                <div className="lg:flex lg:flex-row lg:justify-between w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto">
+        <div className="bg-[#00863E] p-4 pb-9 mdx:px-[40px] lg:py-[40px] xl:px-[80px] 2xl:px-[80px] xl:py-[60px] relative max-w-[1440px] mx-auto w-full">
+            <div className="flex max-xl:flex-col gap-12 max-lg:gap-8 mx-auto w-full h-auto">
+                <div className="lg:flex lg:flex-row lg:justify-between w-full max-w-[1640px] 5xl:max-w-[2000px] mx-auto">
                     <div>
-                        <h3 className="text-[25px] text-[#fff] mdx:font-semibold mdx:text-[30px] pt-[10px] pb-[17px] mdx:pt-[30px] mdx:pb-[30px] 3xl:text-[35px] xl:pt-0 lh max-mdx:max-w-[50%] xl:pb-[12px]">
+                        <h3 className="text-[25px] text-[#fff] mdx:font-semibold mdx:text-[30px] pt-[10px] pb-[17px] mdx:pt-[20px] mdx:pb-[12px] 3xl:text-[35px] xl:pt-0 lh max-mdx:max-w-[50%] ">
                             {t('title')}
                         </h3>
                         <h5 className="text-[15px] mdx:text-[16.5px] xl:text-[18px] max-w-[325px] mdx:max-w-[466px] xl:max-w-[325px] text-[#fff] opacity-[0.8] mb-[25px]">
@@ -176,7 +176,7 @@ export default function ContAddress({ closeModal }) {
                     </form>
                 </div>
             </div>
-            <div className="absolute top-0 right-0 ">
+            <div className="absolute top-0 right-0 xl:top-auto xl:bottom-0 xl:left-16">
                 <Image
                     priority
                     src={logo_top}
@@ -184,7 +184,7 @@ export default function ContAddress({ closeModal }) {
                     height={270}
                     alt="The Wild Oasis logo"
                     quality={100}
-                    className="w-full h-auto max-w-[148px]"
+                    className="w-full h-auto max-w-[148px] xl:hidden"
                 />
                 <Image
                     priority
@@ -193,7 +193,7 @@ export default function ContAddress({ closeModal }) {
                     height={270}
                     alt="The Wild Oasis logo"
                     quality={100}
-                    className="w-full h-auto max-w-[141px] hidden"
+                    className="w-full h-auto max-w-[235px] hidden xl:block bottom-0"
                 />
             </div>
         </div>

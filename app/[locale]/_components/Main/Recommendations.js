@@ -3,7 +3,7 @@ import arrow from "@/public/svg/arrow-right-green.svg";
 import Image from "next/image";
 import logo from "@/public/images/Logoabs.png";
 
-const AboutService = () => {
+const SignUp = () => {
     const t = useTranslations('Main.Recommendations');
 
     return (
@@ -98,4 +98,4 @@ const AboutService = () => {
     );
 };
 
-export default AboutService;
+export default SignUp;
