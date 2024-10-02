@@ -10,7 +10,7 @@ import Doctor1 from "@/public/images/Main/slieder1.png";
 import Doctor2 from "@/public/images/Main/slider2.png";
 
 export default function List({ locale }) {
-    const t = useTranslations('News');
+    const t = useTranslations('Doctors');
     const params = useParams()
     const [news, setNews] = useState([]) // Состояние для новостей
     const [loading, setLoading] = useState(true) // Состояние загрузки
@@ -84,9 +84,9 @@ export default function List({ locale }) {
                 {t('title')}
             </h2>
             <p className="text-[15px] text-[#666666] mdx:text-[18px] mt-[5px]">{t('subtitle')}</p>
-            <div className='w-full grid gap-y-[30px] gap-x-[14px] grid-cols-1 mdl:grid-cols-2 xl:grid-cols-4 h-auto mt-[40px] xl:mt-[60px]'>
+            <div className='w-full grid gap-y-[30px] gap-x-[14px] grid-cols-1 mdl:grid-cols-2 xl:grid-cols-4 h-auto mt-[35px] xl:mt-[55px]'>
                 {data.map((item, i) => (
-                    <a key={i} href={`/${locale}/blogs/${item.slug}`}>
+                    <a key={i} href={`/${locale}/doctors-main/${item.slug}`}>
                         <NewCardMain
                             title={item.title}
                             date={item.date}
