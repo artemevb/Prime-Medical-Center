@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from 'react';
 
-export default function NewCard() {
+export default function SkillsMain() {
     const t = useTranslations('Doctors.Skills');
     const [selectedTab, setSelectedTab] = useState('education');
     return (
@@ -25,31 +25,39 @@ export default function NewCard() {
                 </button>
             </div>
 
-            <hr className="my-[25px]" />
+            <hr className="my-[25px] mdl:my-[30px]" />
 
             <div>
                 {selectedTab === 'education' && (
                     <div>
-                        <div className="border-b pb-[15px] mb-[15px]">
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">2015 - 2021 г.</p>
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">Ташкентский Педиатрический Медицинский Институт</p>
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">Педиатрия - Бакалавр</p>
+                        <div className="border-b pb-[15px] mb-[15px]  mdl:pb-[30px] mdl:mb-[30px]">
+                            <div className="mdl:flex mdl:justify-between max-w-[952px]">
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">2015 - 2021 г.</p>
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">Ташкентский Педиатрический Медицинский Институт</p>
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">Педиатрия - Бакалавр</p>
+                            </div>
                         </div>
-                        <div className=" border-b pb-[15px] mb-[15px]">
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">2021-2023 г.</p>
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">МГУ им Н.П.Огарёва</p>
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">Оториноларингология - Ординатура</p>
+                        <div className="border-b pb-[15px] mb-[15px]  mdl:pb-[30px] mdl:mb-[30px]">
+                            <div className="mdl:flex mdl:justify-between max-w-[952px]">
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">2021-2023 г.</p>
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">МГУ им Н.П.Огарёва</p>
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">Оториноларингология - Ординатура</p>
+                            </div>
                         </div>
                     </div>
                 )}
 
                 {selectedTab === 'specialization' && (
                     <div>
-                        <div>
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">111ЛОР врач</p>
+                        <div className="border-b pb-[15px] mb-[15px]  mdl:pb-[30px] mdl:mb-[30px]">
+                            <div className="mdl:flex mdl:justify-between max-w-[952px]">
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">ЛОР врач</p>
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-[16px] mdx:text-[18px] xl:text-[20px]">111Отоларинголог</p>
+                        <div className="border-b pb-[15px] mb-[15px]  mdl:pb-[30px] mdl:mb-[30px]">
+                            <div className="mdl:flex mdl:justify-between max-w-[952px]">
+                                <p className="text-[16px] mdx:text-[18px] xl:text-[20px] max-w-[345px]">Отоларинголог</p>
+                            </div>
                         </div>
                     </div>
                 )}

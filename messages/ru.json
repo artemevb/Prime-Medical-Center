@@ -403,7 +403,8 @@
         },
         "Doctor-services": {
             "services": "Услуги доктора",
-            "services-all": "Все услуги"
+            "services-all": "Все услуги",
+            "services-all-false": "Скрыть услуги"
         }
     }
 }
