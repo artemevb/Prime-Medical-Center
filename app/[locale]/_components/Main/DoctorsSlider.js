@@ -8,7 +8,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 
-const DoctorsSlider = () => {
+const DoctorsSlider = ({locale}) => {
     const t = useTranslations('Main.DoctorsSlider');
 
     const data = [
@@ -86,7 +86,7 @@ const DoctorsSlider = () => {
                             {data.map((item, i) => {
                                 return (
                                     <div className='px-[10px] xl:h-[520px] 3xl:h-[540px] max-h-full' key={i}>
-                                        <a href={`/news/${item.slug}`}>
+                                        <a href={`/${locale}/doctors/${item.slug}`}>
                                             <NewCardMain
                                                 title={item.title}
                                                 date={item.date}
@@ -100,7 +100,7 @@ const DoctorsSlider = () => {
                     </div>
                     <div className='flex w-full justify-center'>
                         <a
-                            href={`/news`}
+                            href={`/${locale}/doctors`}
                             className='flex items-center justify-center border border-neutral-300 py-3 text-[#fff] transition-all duration-200 bg-[#00863E] hover:bg-[#398f61] font-semibold w-[223px]'
                         >
                             {t('button')}

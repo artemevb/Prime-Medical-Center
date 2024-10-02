@@ -5,8 +5,9 @@ import Recommendations from "./Recommendations";
 import DoctorsSlider from "./DoctorsSlider";
 import SignUp from "./SignUp";
 import Contacts from "./Contacts";
+import { useTranslations } from "next-intl";
 
-export default function Main() {
+export default function Main({ params }) {
 
   return (
     <div className="w-full bg-white flex flex-col gap-28 xl:gap-36">
@@ -14,7 +15,7 @@ export default function Main() {
       <About />
       <OurServices />
       <Recommendations />
-      <DoctorsSlider />
+      <DoctorsSlider locale={params.locale} />
       <div className="mx-[10px]">
         <SignUp />
       </div>

@@ -14,7 +14,7 @@ export default function NewCard({ key, title, date, imageSrc }) {
         alt={`News Image ${key}`}
         className="w-full h-auto object-cover"
       />
-      <div className="w-full flex flex-col gap-3 pl-4">
+      <div className="w-full flex flex-col gap-3">
         <h3 className="text-xl max-mdx:text-lg font-semibold line-clamp-4 max-w-[280px]">
           {title}
         </h3>
