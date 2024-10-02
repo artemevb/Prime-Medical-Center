@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import Doctor1 from "@/public/images/Main/slieder1.png";
+import Doctor1 from "@/public/images/Main-Doctors/slieder1.png";
 import { useTranslations } from "next-intl";
 
 export default function NewCard() {
