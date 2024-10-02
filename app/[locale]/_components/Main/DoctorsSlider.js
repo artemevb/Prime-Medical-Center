@@ -101,7 +101,7 @@ const DoctorsSlider = ({locale}) => {
                     <div className='flex w-full justify-center'>
                         <a
                             href={`/${locale}/doctors`}
-                            className='flex items-center justify-center border border-neutral-300 py-3 text-[#fff] transition-all duration-200 bg-[#00863E] hover:bg-[#398f61] font-semibold w-[223px]'
+                            className='flex items-center justify-center border border-neutral-300 py-3 text-[#fff] transition-all duration-200 bg-[#00863E] hover:bg-[#398f61] font-extrabold w-[223px]'
                         >
                             {t('button')}
                         </a>

@@ -89,7 +89,7 @@ export default function Tools({ navOptions, locale }) {
           </div>
         </div>
         <div className="flex items-center gap-4 max-mdx:gap-1 my-auto">
-          <button className="hidden mdx:block bg-[#00863E] hover:bg-[#398f61] w-full px-[52px] max-w-[200px] mdx:h-[50px]">
+          <button className="hidden mdx:block bg-[#00863E] hover:bg-[#398f61] w-full px-[52px] max-w-[200px] mdx:h-[50px] font-extrabold">
             <p className="text-white">{t("Header.button")}</p>
           </button>
         </div>

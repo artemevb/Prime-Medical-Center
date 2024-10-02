@@ -36,13 +36,13 @@ export default function ServiceMain() {
                 {servicesToShow.map((service, index) => (
                     <div key={index} className="border border-[#EEE] p-[20px] flex flex-col justify-between min-h-[150px] mdx:min-h-[180px] 2xl:min-h-[200px]">
                         <h5 className="text-[18px] mdx:text-[18px] xl:text-[22px] font-medium">{service.name}</h5>
-                        <p className="text-[#00863E] text-[18px] mdx:text-[18px] xl:text-[22px] font-semibold">{service.price}</p>
+                        <p className="text-[#00863E] text-[18px] mdx:text-[18px] xl:text-[22px] font-bold">{service.price}</p>
                     </div>
                 ))}
             </div>
             {services.length > 12 && (
                 <button
-                    className="mt-[25px] mdx:mt-[35px] xl:mt-[45px] text-[16px] mdx:text-[18px] xl:text-[20px] text-[#00863E] font-semibold flex items-center justify-center"
+                    className="mt-[25px] mdx:mt-[35px] xl:mt-[45px] text-[16px] mdx:text-[18px] xl:text-[20px] text-[#00863E] font-bold flex items-center justify-center"
                     onClick={() => setShowMore(!showMore)}
                 >
                     {showMore ? t('services-all-false') : t('services-all')}

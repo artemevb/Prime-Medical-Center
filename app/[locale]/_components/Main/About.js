@@ -13,7 +13,7 @@ const AboutService = () => {
                 <div className="border rounded-full flex flex-col items-center justify-center min-h-[328px] aspect-square text-[#666666] p-4">
                     <span className="text-[35px] mdx:text-[40px] text-[#00863E] flex flex-col items-center font-semibold">
                         17
-                        <span className="text-[20px] mdx:text-[26px] font-semibold">{t("years_of_work")}</span>
+                        <span className="text-[20px] mdx:text-[26px] font-bold">{t("years_of_work")}</span>
                     </span>
                     <p className="mt-2 max-w-[80%] text-center text-[16px] xl:text-[18px] font-medium">{t("description_work")}</p>
                 </div>
@@ -22,7 +22,7 @@ const AboutService = () => {
                 <div className="border rounded-full flex flex-col items-center justify-center min-h-[328px] aspect-square text-[#666666] p-4">
                     <span className="text-[35px] mdx:text-[40px] text-[#00863E] flex flex-col items-center font-semibold">
                         10
-                        <span className="text-[20px] mdx:text-[26px] font-semibold">{t("doctors")}</span>
+                        <span className="text-[20px] mdx:text-[26px] font-bold">{t("doctors")}</span>
                     </span>
                     <p className="mt-2 max-w-[80%] text-center text-[16px] xl:text-[18px] font-medium">{t("description_doctors")}</p>
                 </div>
@@ -31,7 +31,7 @@ const AboutService = () => {
                 <div className="border rounded-full flex flex-col items-center justify-center min-h-[328px] aspect-square text-[#666666] p-4">
                     <span className="text-[35px] mdx:text-[40px] text-[#00863E] flex flex-col items-center font-semibold">
                         4
-                        <span className="text-[20px] mdx:text-[26px] font-semibold ">{t("directions")}</span>
+                        <span className="text-[20px] mdx:text-[26px] font-bold ">{t("directions")}</span>
                     </span>
                     <p className="mt-2 max-w-[80%] text-center text-[16px] xl:text-[18px] font-medium">{t("description_directions")}</p>
                 </div>
@@ -40,7 +40,7 @@ const AboutService = () => {
                 <div className="border rounded-full flex flex-col items-center justify-center min-h-[328px] aspect-square text-[#666666] p-4">
                     <span className="text-[35px] mdx:text-[40px] text-[#00863E] flex flex-col items-center font-semibold">
                         900+
-                        <span className="text-[20px] mdx:text-[26px] font-semibold">{t("analyzes")}</span>
+                        <span className="text-[20px] mdx:text-[26px] font-bold">{t("analyzes")}</span>
                     </span>
                     <p className="mt-2 max-w-[80%] text-center text-[16px] xl:text-[18px] font-medium">{t("description_analyzes")}</p>
                 </div>

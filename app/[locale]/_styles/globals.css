@@ -2,15 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('../../../public/fonts/fonts.css');
+
+body {
+  font-family: 'Mulish', sans-serif;
+}
+
+
 .lh {
-    line-height: normal;
+  line-height: normal;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
-  }
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}

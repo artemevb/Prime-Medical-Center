@@ -23,12 +23,12 @@ const OurServices = () => {
                         />
                     </div>
                     <div className="mt-[20px]">
-                        <h5 className=" font-medium text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
+                        <h5 className=" font-semibold text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
                             {t("subtitle-library")}
                         </h5>
-                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px]">{t("subtitle-library-text")}</p>
+                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-library-text")}</p>
                         <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
-                            <p className="text-white text-[14px] mdx:text-[16px]">{t("price")}</p>
+                            <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
 
@@ -44,12 +44,12 @@ const OurServices = () => {
                         />
                     </div>
                     <div className="mt-[20px]">
-                        <h5 className=" font-medium text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
+                        <h5 className=" font-semibold text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
                             {t("subtitle-specialist-consultations")}
                         </h5>
-                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px]">{t("subtitle-specialist-consultations-text")}</p>
+                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-specialist-consultations-text")}</p>
                         <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
-                            <p className="text-white text-[14px] mdx:text-[16px]">{t("price")}</p>
+                            <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
 
@@ -65,12 +65,12 @@ const OurServices = () => {
                         />
                     </div>
                     <div className="mt-[20px]">
-                        <h5 className=" font-medium text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
+                        <h5 className=" font-semibold text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
                             {t("subtitle-instrumental-diagnostics")}
                         </h5>
-                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px]">{t("subtitle-instrumental-diagnostics-text")}</p>
+                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-instrumental-diagnostics-text")}</p>
                         <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
-                            <p className="text-white text-[14px] mdx:text-[16px]">{t("price")}</p>
+                            <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
 
@@ -86,12 +86,12 @@ const OurServices = () => {
                         />
                     </div>
                     <div className="mt-[20px]">
-                        <h5 className=" font-medium text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
+                        <h5 className=" font-semibold text-[22px] mdx:text-[30px] xl:text-[35px] max-w-[447px] lh">
                             {t("subtitle-functional-diagnostics")}
                         </h5>
-                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px]">{t("subtitle-functional-diagnostics-text")}</p>
+                        <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-functional-diagnostics-text")}</p>
                         <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
-                            <p className="text-white text-[14px] mdx:text-[16px]">{t("price")}</p>
+                            <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
 

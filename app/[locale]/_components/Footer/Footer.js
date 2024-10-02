@@ -11,7 +11,7 @@ import facebook from "@/public/svg/social/facebook.svg";
 import youtube from "@/public/svg/social/youtube.svg";
 
 const FooterLink = ({ text }) => (
-  <div className="mt-[8px] mdx:mt-[12px]">{text}</div>
+  <div className="mt-[8px] mdx:mt-[12px] font-medium">{text}</div>
 );
 
 // Компонент секции футера

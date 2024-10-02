@@ -82,10 +82,10 @@ export default function ContAddress({ closeModal }) {
             <div className="flex max-xl:flex-col gap-12 max-lg:gap-8 mx-auto w-full h-auto">
                 <div className="lg:flex lg:flex-row lg:justify-between w-full max-w-[1640px] 5xl:max-w-[2000px] mx-auto">
                     <div>
-                        <h3 className="text-[25px] text-[#fff] mdx:font-semibold mdx:text-[30px] pt-[10px] pb-[17px] mdx:pt-[20px] mdx:pb-[12px] 3xl:text-[35px] xl:pt-0 lh max-mdx:max-w-[50%] ">
+                        <h3 className="text-[25px] text-[#fff] mdx:font-bold mdx:text-[30px] pt-[10px] pb-[17px] mdx:pt-[20px] mdx:pb-[12px] 3xl:text-[35px] xl:pt-0 lh max-mdx:max-w-[50%] ">
                             {t('title')}
                         </h3>
-                        <h5 className="text-[15px] mdx:text-[16.5px] xl:text-[18px] max-w-[325px] mdx:max-w-[466px] xl:max-w-[325px] text-[#fff] opacity-[0.8] mb-[25px]">
+                        <h5 className="text-[15px] mdx:text-[16.5px] xl:text-[18px] max-w-[325px] mdx:max-w-[466px] xl:max-w-[325px] text-[#fff] opacity-[0.8] mb-[25px] font-medium">
                             {t('subtitle')}
                         </h5>
                     </div>
