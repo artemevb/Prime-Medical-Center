@@ -1,15 +1,19 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Close from "@/app/[locale]/_components/Close";
 import RightIcon from "@/app/[locale]/_components/RightIcon";
-import phone from "@/public/svg/phone.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import ruFlag from "@/public/svg/flags/flag-for-russia-svgrepo-com.svg";
 import uzFlag from "@/public/svg/flags/flag-for-uzbekistan-svgrepo-com.svg";
 import { Link, usePathname } from "@/i18n/routing";
+import globus from "@/public/svg/header/globus.svg";
+import { useState } from "react";
 
-const Menu = ({ menu, closeMenu, navOptions, toggleDropdown, isOpen, availableLocales, locale }) => {
+const Menu = ({ menu, closeMenu, navOptions, locale }) => {
   const t = useTranslations();
+  const availableLocales = ["uz", "ru"];
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const backgroundVariants = {
     hidden: { opacity: 0 },
@@ -23,7 +27,9 @@ const Menu = ({ menu, closeMenu, navOptions, toggleDropdown, isOpen, availableLo
     exit: { x: "100%" },
   };
 
-  const pathname = usePathname();
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <AnimatePresence>
@@ -38,7 +44,7 @@ const Menu = ({ menu, closeMenu, navOptions, toggleDropdown, isOpen, availableLo
           onClick={closeMenu}
         >
           <motion.div
-            className="z-10 top-0 right-0 w-5/6 bg-white h-full shadow-md"
+            className="z-10 top-0 right-0 w-[78%] bg-white h-full shadow-md"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -49,23 +55,17 @@ const Menu = ({ menu, closeMenu, navOptions, toggleDropdown, isOpen, availableLo
             <div className="border-b py-4 flex">
               <div className="w-full flex justify-between mx-4">
                 <div className="flex justify-end gap-2 items-center w-full">
-                  {/* Language Switcher */}
-                  <div className="flex gap-0 justify-center px-2 mdx:px-3 py-2 mdx:py-2 border border-solid border-neutral-200 rounded-[100px] text-neutral-900">
+                  <div className="flex gap-0 justify-center px-2 mdx:px-3 mt-[6px] border-soli text-[#00863E]">
                     <div className="relative inline-block text-left">
                       <div>
                         <button
                           type="button"
-                          className="inline-flex justify-center w-full rounded-md border-gray-300 bg-white text-sm font-medium text-gray-700"
+                          className="inline-flex justify-center w-full items-center bg-white text-base font-medium text-[#00863E]"
                           onClick={toggleDropdown}
                         >
+                          <Image priority src={globus} width={25} height={25} alt="globus icons" quality={100} className="mr-[8px]" />
                           {locale.toUpperCase()}
-                          <svg
-                            className="-mr-1 ml-2 h-5 w-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
+                          <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path
                               fillRule="evenodd"
                               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -83,30 +83,13 @@ const Menu = ({ menu, closeMenu, navOptions, toggleDropdown, isOpen, availableLo
                                 key={lng}
                                 href={pathname}
                                 locale={lng}
-                                style={{
-                                  marginLeft: 10,
-                                  color: locale === lng ? "red" : "black",
-                                }}
+                                style={{ marginLeft: 10, color: locale === lng ? "red" : "black" }}
                                 className="hover:font-bold transition-all duration-300 flex gap-2 items-center"
                               >
                                 {lng === "uz" ? (
-                                  <Image
-                                    src={uzFlag}
-                                    height={100}
-                                    width={100}
-                                    quality={100}
-                                    alt="Uz Flag"
-                                    className="w-4 h-4"
-                                  />
+                                  <Image src={uzFlag} height={100} width={100} quality={100} alt="Uz Flag" className="w-4 h-4" />
                                 ) : (
-                                  <Image
-                                    src={ruFlag}
-                                    height={100}
-                                    width={100}
-                                    quality={100}
-                                    alt="Ru Flag"
-                                    className="w-4 h-4"
-                                  />
+                                  <Image src={ruFlag} height={100} width={100} quality={100} alt="Ru Flag" className="w-4 h-4" />
                                 )}
                                 {lng.toUpperCase()}
                               </Link>
@@ -116,30 +99,6 @@ const Menu = ({ menu, closeMenu, navOptions, toggleDropdown, isOpen, availableLo
                       )}
                     </div>
                   </div>
-
-                  <a
-                    onClick={async () => {
-                      try {
-                        let response = await fetch("https://interlab.uz/api/count?button=call", {
-                          method: "POST",
-                        });
-                        console.log("Response Of Count", response.json());
-                      } catch (error) {
-                        console.log("error to counter fetching", error);
-                      }
-                    }}
-                    className="block border p-[7px] rounded-full"
-                    href="tel:1156"
-                  >
-                    <Image
-                      priority
-                      src={phone}
-                      width={20}
-                      height={20}
-                      alt="Phone icon"
-                      quality={100}
-                    />
-                  </a>
                   <div onClick={closeMenu}>
                     <Close />
                   </div>

@@ -10,7 +10,12 @@ export const metadata = {
     template: "%s",
     default: "Prime Medical Center"
   },
-  description: "Prime Medical Center"
+  description: "Prime Medical Center",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    shortcut: '/apple-touch-icon.png',
+  },
 }
 
 

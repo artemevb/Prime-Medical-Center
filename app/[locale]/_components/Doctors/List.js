@@ -86,7 +86,14 @@ export default function List({ locale }) {
             <p className="text-[15px] text-[#666666] mdx:text-[18px] mt-[5px]">{t('subtitle')}</p>
             <div className='w-full grid gap-y-[30px] gap-x-[14px] grid-cols-1 mdl:grid-cols-2 xl:grid-cols-4 h-auto mt-[35px] xl:mt-[55px]'>
                 {data.map((item, i) => (
-                    <a key={i} href={`/${locale}/doctors-main/${item.slug}`}>
+                    // <a key={i} href={`/${locale}/doctors-main/${item.slug}`}> 
+                    //     <NewCardMain
+                    //         title={item.title}
+                    //         date={item.date}
+                    //         imageSrc={item.imageSrc}
+                    //     />
+                    // </a>
+                    <a key={i} href={`/${locale}/doctors/Main`}>
                         <NewCardMain
                             title={item.title}
                             date={item.date}

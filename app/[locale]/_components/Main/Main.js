@@ -5,7 +5,6 @@ import Recommendations from "./Recommendations";
 import DoctorsSlider from "./DoctorsSlider";
 import SignUp from "./SignUp";
 import Contacts from "./Contacts";
-import { useTranslations } from "next-intl";
 
 export default function Main({ params }) {
 

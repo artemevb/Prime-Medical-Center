@@ -17,7 +17,7 @@ export default function NewCard({ key, title, subtitle, date, imageSrc }) {
                 className="w-full h-auto object-cover"
             />
             <div className="w-full flex flex-col flex-grow justify-between mt-[10px] xl:mt-[15px]">
-                <h3 className="text-[20px] mdx:text-[24px] xl:text-[26px] font-bold mt-0">
+                <h3 className="text-[20px] mdx:text-[24px] xl:text-[26px] font-bold mt-0 lh">
                     {title}
                 </h3>
                 <p className="text-[15px] mdx:text-[16px] xl:text-[18px] lh font-medium line-clamp-3 text-[#666] mt-[8px]">
