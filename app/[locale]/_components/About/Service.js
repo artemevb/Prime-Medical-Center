@@ -15,7 +15,7 @@ const Service = () => {
     const t = useTranslations('About.Service');
 
     return (
-        <div className="w-full mx-auto max-xl:mt-[30px] max-w-[1440px]">
+        <div className="w-full mx-auto max-w-[1440px]">
             <div className="xl:flex xl:justify-between ">
                 <div className="max-xl:px-[16px] xl:w-[50%] ">
                     <div className="inline">
