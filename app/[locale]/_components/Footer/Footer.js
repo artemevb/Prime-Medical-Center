@@ -53,9 +53,9 @@ function Footer({ locale }) {
               <h4 className="text-[#000000] font-bold text-[20px] mdx:text-[24px] xl:text-[26px] pt-[30px] pb-[17px] max-w-[208px] mdx:max-w-[299px] xl:max-w-[393px]">
                 {t("Footer.telegram_info")}
               </h4>
-              <button className="bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] min-h-[50px] flex items-center justify-center mdx:max-w-[240px]">
+              <a href="https://t.me/prime_medical_center" target="_blank" className="bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] min-h-[50px] flex items-center justify-center mdx:max-w-[240px]">
                 <p className="text-white text-[14px] mdx:text-[16px] font-bold">Telegram</p>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -113,7 +113,7 @@ function Footer({ locale }) {
                   {t("Footer.social")}
                 </h4>
                 <div className="mt-[18px] flex flex-row gap-[8px]">
-                  <div>
+                  <a href="https://www.instagram.com/prime_medical_center/" target="_blank">
                     <Image
                       src={instagram}
                       width={50}
@@ -122,8 +122,8 @@ function Footer({ locale }) {
                       alt="instagram logo"
                       className="h-full w-full object-cover"
                     />
-                  </div>
-                  <div>
+                  </a>
+                  <a href="https://t.me/prime_medical_center" target="_blank">
                     <Image
                       src={telegram}
                       width={50}
@@ -132,8 +132,8 @@ function Footer({ locale }) {
                       alt="telegram logo"
                       className="h-full w-full object-cover"
                     />
-                  </div>
-                  <div>
+                  </a>
+                  <a href="https://www.facebook.com/people/Prime-Medical-Center/100085066009600/" target="_blank">
                     <Image
                       src={facebook}
                       width={50}
@@ -142,8 +142,8 @@ function Footer({ locale }) {
                       alt="facebook logo"
                       className="h-full w-full object-cover"
                     />
-                  </div>
-                  <div>
+                  </a>
+                  <a href="https://youtube.com/@primemedicalcentertashkent?si=zsvKksa_R4qwUuPy" target="_blank">
                     <Image
                       src={youtube}
                       width={50}
@@ -152,7 +152,7 @@ function Footer({ locale }) {
                       alt="youtube logo"
                       className="h-full w-full object-cover"
                     />
-                  </div>
+                  </a>
 
                 </div>
               </div>

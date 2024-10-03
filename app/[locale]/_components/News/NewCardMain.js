@@ -17,21 +17,28 @@ export default function NewCard({ key, title, subtitle, date, imageSrc }) {
                 className="w-full h-auto object-cover"
             />
             <div className="w-full flex flex-col flex-grow justify-between mt-[10px] xl:mt-[15px]">
-                <h3 className="text-[20px] mdx:text-[24px] xl:text-[26px] font-bold mt-0 lh">
-                    {title}
-                </h3>
-                <p className="text-[15px] mdx:text-[16px] xl:text-[18px] lh font-medium line-clamp-3 text-[#666] mt-[8px]">
-                    {subtitle}
-                </p>
+                {/* Combined Title and Subtitle with Line Clamp */}
+                <div className="line-clamp-4">
+                    <h3 className="text-[20px] mdx:text-[24px] xl:text-[26px] font-bold mt-0 lh line-clamp-2">
+                        {title}
+                    </h3>
+                    <p className="text-[15px] mdx:text-[16px] xl:text-[18px] lh font-medium text-[#666] mt-[8px] line-clamp-2">
+                        {subtitle}
+                    </p>
+                </div>
+
+                {/* Button with Arrow */}
                 <div className="flex flex-row gap-[5px] items-center mt-[10px]">
-                    <p className="text-[#00863E] xl:text-[20px] text-[16px] mdx:text-[18px] font-bold">{t('button')}</p>
+                    <p className="text-[#00863E] xl:text-[20px] text-[16px] mdx:text-[18px] font-bold">
+                        {t('button')}
+                    </p>
                     <Image
                         src={GreenArrow}
-                        width={500}
-                        height={500}
+                        width={25} // Adjusted to match the className width
+                        height={25} // Adjusted to match the className width
                         quality={100}
                         alt="Green Arrow"
-                        className="w-[25px]"
+                        className="w-[25px] h-[25px]" // Ensure height matches for consistent sizing
                     />
                 </div>
             </div>
