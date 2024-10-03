@@ -2,19 +2,18 @@
 
 import newsPhoto from '@/public/images/News/image.png'
 import newsPhoto2 from '@/public/images/News/image2.png'
-// import axios from 'axios'
-import { useParams } from 'next/navigation'
+import newsPhoto3 from '@/public/images/News/image3.png'
+import newsPhoto4 from '@/public/images/News/image4.png'
 import { useEffect, useState } from 'react'
 import NewCardMain from '../News/NewCardMain'
 import { useTranslations } from "next-intl";
 
 export default function NewsComp({ locale }) {
-    const t = useTranslations('News');
-    const params = useParams()
-    const [news, setNews] = useState([]) // State for news
+    const t = useTranslations('News.Main');
+    const [news, setNews] = useState([]) // State for all news
+    const [visibleNews, setVisibleNews] = useState([]) // State for visible news
     const [loading, setLoading] = useState(false) // Loading state
     const [error, setError] = useState(null) // Error state
-    const [visibleNewsCount, setVisibleNewsCount] = useState(8); // State for the number of visible news
 
     // Temporary data
     const temporaryNews = [
@@ -60,7 +59,7 @@ export default function NewsComp({ locale }) {
                 title: `Здоровье осенью`,
                 heading: 'Заголовок новости 5',
                 date: 'Дата новости 5',
-                photo: { url: newsPhoto },
+                photo: { url: newsPhoto3 },
             },
         },
         {
@@ -78,7 +77,7 @@ export default function NewsComp({ locale }) {
                 title: `Как бороться с гриппом`,
                 heading: 'Заголовок новости 7',
                 date: 'Дата новости 7',
-                photo: { url: newsPhoto },
+                photo: { url: newsPhoto4 },
             },
         },
         {
@@ -87,7 +86,7 @@ export default function NewsComp({ locale }) {
                 title: `Мужское здоровье`,
                 heading: 'Заголовок новости 8',
                 date: 'Дата новости 8',
-                photo: { url: newsPhoto2 },
+                photo: { url: newsPhoto },
             },
         },
         {
@@ -96,7 +95,7 @@ export default function NewsComp({ locale }) {
                 title: `Профилактика инфекций`,
                 heading: 'Заголовок новости 9',
                 date: 'Дата новости 9',
-                photo: { url: newsPhoto },
+                photo: { url: newsPhoto3 },
             },
         },
         {
@@ -105,31 +104,41 @@ export default function NewsComp({ locale }) {
                 title: `Советы по здоровью`,
                 heading: 'Заголовок новости 10',
                 date: 'Дата новости 10',
-                photo: { url: newsPhoto2 },
+                photo: { url: newsPhoto4 },
             },
         },
-    ]
+    ];
 
-    // Using temporary data
+    // Function to get random news without repetition
+    const getRandomNews = (arr, count) => {
+        const shuffled = [...arr].sort(() => 0.5 - Math.random()); // Shuffle array
+        return shuffled.slice(0, count); // Return the first `count` items
+    };
+
+    // Initial load of 4 random news
     useEffect(() => {
-        setNews(temporaryNews)
-    }, [])
+        setNews(temporaryNews); // Set all news
+        setVisibleNews(getRandomNews(temporaryNews, 4)); // Show 4 random news
+    }, []);
 
     const loadMoreNews = () => {
-        setVisibleNewsCount(prevCount => prevCount + 8); // Show 8 more news items
-    }
+        const remainingNews = news.filter(n => !visibleNews.includes(n)); // Filter out already visible news
+        if (remainingNews.length === 0) return; // If no remaining news, stop
+        const newRandomNews = getRandomNews(remainingNews, 4); // Get 4 new random news
+        setVisibleNews(prev => [...prev, ...newRandomNews]); // Add new news to visible ones
+    };
 
     if (loading) return <div>Загрузка...</div> // Loading indicator
     if (error) return <div>{error}</div> // Error message
 
     return (
-        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px]'>
+        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] mt-[90px] mdx:mt-[120px]'>
             <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-semibold'>
-                {t('title')}
+                {t('other')}
             </h2>
             <div className='w-full grid gap-y-[35px] mdx:gap-y-[45px] xl:gap-y-[55px] gap-x-4 grid-cols-1 mdl:grid-cols-2 xl:grid-cols-4 h-auto'>
-                {news.slice(0, visibleNewsCount).map((item, i) => (
-                    <a key={i} href={`/${locale}/news/Main`}>
+                {visibleNews.map((item, i) => (
+                    <a key={i} href={`/${locale}/news/${item.slug}`}>
                         <NewCardMain
                             title={item.head.title}
                             subtitle={item.head.heading}
@@ -137,23 +146,16 @@ export default function NewsComp({ locale }) {
                             imageSrc={item.head.photo?.url || newsPhoto}
                         />
                     </a>
-                    //     <a key={i} href={`/${locale}/news/${item.slug}`}>
-                    //     <NewCardMain
-                    //         title={item.head.title}
-                    //         subtitle={item.head.heading}
-                    //         date={item.head.date}
-                    //         imageSrc={item.head.photo?.url || newsPhoto} 
-                    //     />
-                    // </a>
                 ))}
             </div>
-            {visibleNewsCount < news.length && ( // Show button only if there are more news to load
-                <div className="flex items-center justify-center xl:mt-[60px] mt-[40px]">
-                    <button onClick={loadMoreNews} className='bg-[#00863E] hover:bg-[#398f61] text-white py-[12px] px-4 max-w-[223px] w-full font-extrabold'>
-                        {t('more')}
-                    </button>
+            {visibleNews.length < news.length && ( // Show button only if there are more news to load
+                <div className="flex items-center justify-center xl:mt-[70px] mdx:mt-[50px] mt-[40px]">
+                    <link rel="stylesheet" href="" />
+                    <a href={`/${locale}/news`} className='bg-[#00863E] hover:bg-[#398f61] text-white py-[12px] px-4 w-[223px]  flex justify-center font-extrabold'>
+                        {t('go')}
+                    </a>
                 </div>
             )}
         </div>
-    )
+    );
 }

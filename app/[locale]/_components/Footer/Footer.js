@@ -169,7 +169,7 @@ function Footer({ locale }) {
               <a
                 target="_blank"
                 rel="noopener noreferrer" // Добавлено для безопасности
-                href="https://result-me.uz/api/redirect?from=aW50ZXJsYWI="
+                href="#"
                 className="flex items-center"
               >
                 <Image

@@ -1,11 +1,25 @@
+"use client"
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Doctor1 from "@/public/images/Main/services1.png";
 import Doctor2 from "@/public/images/Main/services2.png";
 import Doctor3 from "@/public/images/Main/services3.png";
 import Doctor4 from "@/public/images/Main/services4.png";
+import Call from '../Modal/Call'
+import { useState } from "react";
+
 const OurServices = () => {
     const t = useTranslations('Main.OurServices');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="w-full max-w-[1440px] mx-auto px-[16px]">
             <h2 className="text-[30px] mdx:text-[40px] xl:text-[45px] font-semibold">
@@ -27,7 +41,7 @@ const OurServices = () => {
                             {t("subtitle-library")}
                         </h5>
                         <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-library-text")}</p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
+                        <button onClick={openModal} className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
                             <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
@@ -48,7 +62,7 @@ const OurServices = () => {
                             {t("subtitle-specialist-consultations")}
                         </h5>
                         <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-specialist-consultations-text")}</p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
+                        <button onClick={openModal} className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
                             <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
@@ -69,7 +83,10 @@ const OurServices = () => {
                             {t("subtitle-instrumental-diagnostics")}
                         </h5>
                         <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-instrumental-diagnostics-text")}</p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
+                        <button
+                            onClick={openModal}
+                            className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]"
+                        >
                             <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
@@ -90,13 +107,17 @@ const OurServices = () => {
                             {t("subtitle-functional-diagnostics")}
                         </h5>
                         <p className="text-[15px] mdx:text-[18px] text-[#9C9C9C] mt-[5px] max-w-[569px] xl:max-w-[447px] xl:mt-[13px] font-medium">{t("subtitle-functional-diagnostics-text")}</p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]">
+                        <button
+                            onClick={openModal}
+                            className="bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[20px]"
+                        >
                             <p className="text-white text-[14px] mdx:text-[16px] font-extrabold">{t("price")}</p>
                         </button>
                     </div>
 
                 </div>
             </div>
+            {isModalOpen && <Call closeModal={closeModal} />}
         </div>
     );
 };

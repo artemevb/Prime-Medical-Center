@@ -74,7 +74,6 @@ const mockNews1 = [
 ]
 
 export default function MainPages({ locale }) {
-    // Assuming `useTranslations` is a custom hook for translations
     const t = useTranslations('News.Main')
 
     // Replace API states with mock data
