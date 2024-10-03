@@ -127,16 +127,24 @@ export default function NewsComp({ locale }) {
             <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-semibold'>
                 {t('title')}
             </h2>
-            <div className='w-full grid gap-4 grid-cols-1 mdl:grid-cols-2 xl:grid-cols-4 h-auto'>
+            <div className='w-full grid gap-y-[35px] mdx:gap-y-[45px] xl:gap-y-[55px] gap-x-4 grid-cols-1 mdl:grid-cols-2 xl:grid-cols-4 h-auto'>
                 {news.slice(0, visibleNewsCount).map((item, i) => (
-                    <a key={i} href={`/${locale}/news/${item.slug}`}>
+                    <a key={i} href={`/${locale}/news/Main`}>
                         <NewCardMain
                             title={item.head.title}
                             subtitle={item.head.heading}
                             date={item.head.date}
-                            imageSrc={item.head.photo?.url || newsPhoto} // Background image
+                            imageSrc={item.head.photo?.url || newsPhoto}
                         />
                     </a>
+                    //     <a key={i} href={`/${locale}/news/${item.slug}`}>
+                    //     <NewCardMain
+                    //         title={item.head.title}
+                    //         subtitle={item.head.heading}
+                    //         date={item.head.date}
+                    //         imageSrc={item.head.photo?.url || newsPhoto} 
+                    //     />
+                    // </a>
                 ))}
             </div>
             {visibleNewsCount < news.length && ( // Show button only if there are more news to load
