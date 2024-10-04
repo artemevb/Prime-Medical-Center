@@ -35,7 +35,7 @@ export default function ServiceMain() {
             <div className="grid mdx:gap-x-[16px] gap-y-[12px] mdx:gap-y-[20px] mdx:grid-cols-2 mt-[25px] mdx:mt-[30px] 2xl:grid-cols-4">
                 {servicesToShow.map((service, index) => (
                     <div key={index} className="border border-[#EEE] p-[20px] flex flex-col justify-between min-h-[150px] mdx:min-h-[180px] 2xl:min-h-[200px]">
-                        <h5 className="text-[18px] mdx:text-[18px] xl:text-[22px] font-medium">{service.name}</h5>
+                        <h5 className="text-[18px] mdx:text-[18px] xl:text-[22px] font-semibold">{service.name}</h5>
                         <p className="text-[#00863E] text-[18px] mdx:text-[18px] xl:text-[22px] font-bold">{service.price}</p>
                     </div>
                 ))}

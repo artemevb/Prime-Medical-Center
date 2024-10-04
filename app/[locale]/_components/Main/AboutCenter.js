@@ -49,15 +49,15 @@ const AboutService = () => {
               className="w-full h-full "
             />
           </div>
-          <div className="hidden 2xl:flex flex-row justify-between w-full font-medium my-[15px] 2xl:mt-[44px]">
-            <div className="max-w-[59px] mdx:max-w-[144px]">
+          <div className="hidden 2xl:flex flex-row justify-between w-full font-semibold my-[15px] 2xl:mt-[44px]">
+            <div className="max-w-[59px] mdx:max-w-[147px]">
               <h3 className="text-[22px] mdl:text-[34px] 2xl:text-[36px]">{t("doctor_services_1")}</h3>
               <p className="text-[12px] mdl:text-[18px] text-[#9C9C9C]">{t("doctor_services_1_subtitle_mdx")}</p>
             </div>
-            <h3 className="inline text-[16px] max-w-[95px] font-medium mdx:max-w-[150px] mdl:text-[24px] 2xl:text-[26px]">
+            <h3 className="inline text-[16px] max-w-[95px] font-semibold mdx:max-w-[150px] mdl:text-[24px] 2xl:text-[26px]">
               {t("doctor_services_2")}
             </h3>
-            <h3 className="inline text-[16px] max-w-[112px] font-medium mdx:max-w-[180px] mdl:text-[24px] 2xl:text-[26px]">
+            <h3 className="inline text-[16px] max-w-[112px] font-semibold mdx:max-w-[180px] mdl:text-[24px] 2xl:text-[26px]">
               {t("doctor_services_3")}
             </h3>
           </div>
@@ -84,19 +84,19 @@ const AboutService = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between w-full font-medium my-[25px] mdl:hidden">
+      <div className="flex flex-row justify-between w-full font-semibold my-[25px] mdl:hidden">
         <div className="max-w-[59px] mdx:max-w-[144px]">
           <h3 className="text-[22px] mdl:text-[34px]">{t("doctor_services_1")}</h3>
-          <p className="text-[12px] mdl:text-[18px]">{t("doctor_services_1_subtitle")}</p>
+          <p className="text-[12px] mdl:text-[18px] text-[#9C9C9C]">{t("doctor_services_1_subtitle")}</p>
         </div>
-        <h3 className="inline text-[16px] max-w-[95px] font-medium mdx:max-w-[150px] mdl:text-[24px]">
+        <h3 className="inline text-[16px] max-w-[95px] font-semibold mdx:max-w-[150px] mdl:text-[24px]">
           {t("doctor_services_2")}
         </h3>
-        <h3 className="inline text-[16px] max-w-[112px] font-medium mdx:max-w-[180px] mdl:text-[24px]">
+        <h3 className="inline text-[16px] max-w-[112px] font-semibold mdx:max-w-[180px] mdl:text-[24px]">
           {t("doctor_services_3")}
         </h3>
       </div>
-      <button onClick={openModal} className=" bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mdl:hidden">
+      <button onClick={openModal} className=" bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mdl:hidden font-extrabold">
         <p className="text-white text-[14px] mdx:text-[16px]">{t("button_services")}</p>
       </button>
       <div className="w-full py-[25px] mdl:mt-[60px] 2xl:hidden">
@@ -108,15 +108,15 @@ const AboutService = () => {
           className="w-full h-full "
         />
       </div>
-      <div className="hidden mdl:flex flex-row justify-between w-full font-medium my-[15px] 2xl:hidden">
+      <div className="hidden mdl:flex flex-row justify-between w-full font-semibold my-[15px] 2xl:hidden">
         <div className="max-w-[59px] mdx:max-w-[144px]">
           <h3 className="text-[22px] mdl:text-[34px]">{t("doctor_services_1")}</h3>
-          <p className="text-[12px] mdl:text-[18px]">{t("doctor_services_1_subtitle")}</p>
+          <p className="text-[12px] mdl:text-[18px] text-[#9C9C9C]">{t("doctor_services_1_subtitle")}</p>
         </div>
-        <h3 className="inline text-[16px] max-w-[95px] font-medium mdx:max-w-[150px] mdl:text-[24px]">
+        <h3 className="inline text-[16px] max-w-[95px] font-semibold mdx:max-w-[150px] mdl:text-[24px]">
           {t("doctor_services_2")}
         </h3>
-        <h3 className="inline text-[16px] max-w-[112px] font-medium mdx:max-w-[180px] mdl:text-[24px]">
+        <h3 className="inline text-[16px] max-w-[112px] font-semibold mdx:max-w-[180px] mdl:text-[24px]">
           {t("doctor_services_3")}
         </h3>
       </div>
