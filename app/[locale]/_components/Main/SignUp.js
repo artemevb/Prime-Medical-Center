@@ -99,7 +99,7 @@ export default function ContAddress({ closeModal }) {
                                     onChange={handleInputChange}
                                     onFocus={() => setFocusedInput(field)}
                                     onBlur={() => setFocusedInput(null)}
-                                    className={`block w-full px-3 py-2 bg-[#00863E] text-white placeholder-transparent focus:outline-none border-b-2 ${focusedInput === field
+                                    className={`block w-full px-3 py-2 bg-[#00863E] text-white placeholder-transparent focus:outline-none  border-b-[0.5px] ${focusedInput === field
                                         ? validateInput(field, values[field]).isValid
                                             ? "border-[#E1E1E1] opacity-[0.8]"
                                             : "border-[#E1E1E1] opacity-[0.8]"
@@ -118,9 +118,9 @@ export default function ContAddress({ closeModal }) {
                                         : "top-1 text-[16px] mdx:text-[20px]"
                                         } ${focusedInput === field
                                             ? validateInput(field, values[field]).isValid
-                                                ? "text-white opacity-[0.8]"
-                                                : "text-white opacity-[0.8]"
-                                            : "text-white opacity-[0.8]"
+                                                ? "text-white opacity-[0.9]"
+                                                : "text-white opacity-[0.9]"
+                                            : "text-white opacity-[0.9]"
                                         } cursor-text`}
                                     onClick={() => document.getElementsByName(field)[0].focus()}
                                 >
@@ -132,11 +132,11 @@ export default function ContAddress({ closeModal }) {
                                 </label>
                             </div>
                         ))}
-                        <div className="relative border-b-[2px] border-[#E1E1E1] border-opacity-[0.8] mt-3">
+                        <div className="relative border-b-[0.5px] border-[#E1E1E1] border-opacity-[0.8] mt-3">
                             {/* Dropdown Button */}
                             <button
                                 type="button"
-                                className="w-full bg-[#00863E] text-white opacity-[0.8] text-[16px] mdx:text-[20px] text-left border-[#E1E1E1] pb-[10px]"
+                                className="w-full bg-[#00863E] text-white opacity-[0.9] text-[16px] mdx:text-[20px] text-left border-[#E1E1E1] pb-[10px]"
                                 onClick={toggleDropdown}
                             >
                                 {selectedService}
