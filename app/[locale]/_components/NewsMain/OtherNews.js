@@ -101,8 +101,8 @@ export default function NewsComp({ locale }) {
         {
             slug: 'news-10',
             head: {
-                title: `Советы по здоровью`,
-                heading: 'Заголовок новости 10',
+                title: `Советы по здоровьюsdasdasdasd`,
+                heading: 'Заголовок новости 10 asdasd fdsafasdfsdafsadfsdaf',
                 date: 'Дата новости 10',
                 photo: { url: newsPhoto4 },
             },
@@ -149,8 +149,7 @@ export default function NewsComp({ locale }) {
                 ))}
             </div>
             {visibleNews.length < news.length && ( // Show button only if there are more news to load
-                <div className="flex items-center justify-center xl:mt-[70px] mdx:mt-[50px] mt-[40px]">
-                    <link rel="stylesheet" href="" />
+                <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">
                     <a href={`/${locale}/news`} className='bg-[#00863E] hover:bg-[#398f61] text-white py-[12px] px-4 w-[223px]  flex justify-center font-extrabold'>
                         {t('go')}
                     </a>

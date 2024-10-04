@@ -1,16 +1,32 @@
+"use client"
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Head from "next/head"; // Импортируем Head для добавления шрифта
 import Doctor from "@/public/images/Main/doctors.png";
 import Clinic from "@/public/images/Main/clinics.png";
+import Link from "next/link";
+import { useState } from "react";
+import TypeService from '../Modal/TypeService'
 
 const AboutService = () => {
   const t = useTranslations('Main');
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+      setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+      setIsModalOpen(false);
+  };
+
+
   return (
     <div className="w-full max-w-[1440px] mx-auto px-[16px]">
       {/* Подключаем шрифт через Google Fonts */}
       <Head>
-        <link
+        <Link
           href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
           rel="stylesheet"
         />
@@ -54,7 +70,7 @@ const AboutService = () => {
           <h5 className="text-[#9C9C9C] text-[16px] mdx:text-[18px] font-medium pt-[10px]">
             {t("specialization")}
           </h5>
-          <button className="hidden mdl:block bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[30px] font-extrabold">
+          <button onClick={openModal} className="hidden mdl:block bg-[#00863E] hover:bg-[#398f61] w-full mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mt-[30px] font-extrabold">
             <p className="text-white text-[14px] mdx:text-[16px]">{t("button_services")}</p>
           </button>
           <div className="hidden 2xl:block w-full mt-[127px]">
@@ -80,7 +96,7 @@ const AboutService = () => {
           {t("doctor_services_3")}
         </h3>
       </div>
-      <button className=" bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mdl:hidden">
+      <button onClick={openModal} className=" bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] max-w-[223px] min-h-[50px] hover:[#398f61] mdl:hidden">
         <p className="text-white text-[14px] mdx:text-[16px]">{t("button_services")}</p>
       </button>
       <div className="w-full py-[25px] mdl:mt-[60px] 2xl:hidden">
@@ -104,6 +120,7 @@ const AboutService = () => {
           {t("doctor_services_3")}
         </h3>
       </div>
+      {isModalOpen && <TypeService closeModal={closeModal} />}
     </div>
   );
 };

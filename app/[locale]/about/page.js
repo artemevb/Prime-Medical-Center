@@ -10,7 +10,7 @@ export default function page({ params }) {
         <div className="w-full bg-white flex flex-col gap-[90px] mdx:gap-[120px] xl:gap-[180px]">
             <AboutClinics/>
             <Advantages/>
-            <Service/>
+            <Service locale={params.locale}/>
             <SliderDoctors locale={params.locale} />
             <Laboratory/>
             <div className="mx-[10px] mb-[90px] mdx:mb-[130px] xl:mb-[150px]">

@@ -20,6 +20,8 @@ const OurServices = () => {
         setIsModalOpen(false);
     };
 
+    
+
     return (
         <div className="w-full max-w-[1440px] mx-auto px-[16px]">
             <h2 className="text-[30px] mdx:text-[40px] xl:text-[45px] font-semibold">

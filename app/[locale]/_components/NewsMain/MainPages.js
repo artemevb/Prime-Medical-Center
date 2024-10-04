@@ -137,9 +137,9 @@ export default function MainPages({ locale }) {
     // if (!news) return <div>Loading...</div> // Loading state or error handling
 
     return (
-        <div className="w-full max-w-[1440px] mx-auto flex gap-6 px-4">
+        <div className="w-full max-w-[1440px] mx-auto flex gap-6 3xl:gap-[50px] max-3xl:px-4">
             {/* Main news content */}
-            <div className="w-full 2xl:w-8/12">
+            <div className="w-full 2xl:max-w-[1035px]">
                 <div className="mt-4">
                     {news.createdDate && (
                         <p className="font-medium text-[16px] mdx:text-[18px] xl:text-[20px] text-[#00863E]">
@@ -151,7 +151,7 @@ export default function MainPages({ locale }) {
                         </p>
                     )}
                     {news.head?.heading && (
-                        <h1 className="text-[25px] font-bold text-black mb-2 mdx:text-[35px] xl:text-[40px] 2xl:text-[50px] leading-[1.10]">
+                        <h1 className="text-[25px] font-bold text-black mb-2 mdx:text-[35px] xl:text-[40px] 2xl:text-[50px] leading-[1.10] mt-2">
                             {formatTextWithNewlines(news.head.heading)}
                         </h1>
                     )}
@@ -180,7 +180,7 @@ export default function MainPages({ locale }) {
                         )}
                         {item.text && (
                             <ol>
-                                <li className="text-[16px] mdx:text-[20px] py-[15px] font-medium text-[#333333]">
+                                <li className="text-[15px] mdx:text-[20px] py-[15px] font-semibold text-[#333333]">
                                     {formatTextWithNewlines(item.text)}
                                 </li>
                             </ol>

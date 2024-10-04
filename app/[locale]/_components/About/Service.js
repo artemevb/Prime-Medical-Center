@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import clinics from "@/public/images/About/images2.png";
+import Link from "next/link";
 
 const replaceNewLines = (text) => {
     return text.split('\n').map((str, index) => (
@@ -11,7 +12,7 @@ const replaceNewLines = (text) => {
     ));
 };
 
-const Service = () => {
+const Service = ({locale}) => {
     const t = useTranslations('About.Service');
 
     return (
@@ -25,9 +26,11 @@ const Service = () => {
                         <p className="font-medium text-[16px] mdx:text-[18px] xl:text-[20px] text-[#323232] mdx:mt-[20px] xl:mt-[30px] max-w-[628px]">
                             {replaceNewLines(t('text'))}
                         </p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full max-w-[223px] h-[50px] font-extrabold text-[#fff] text-[14px] mdx:text-[16px] mt-[25px] mdx:mt-[30px] ">
-                            {t('button')}
-                        </button>
+                        <Link href={`services`}>
+                            <button className="bg-[#00863E] hover:bg-[#398f61] w-full max-w-[223px] h-[50px] font-extrabold text-[#fff] text-[14px] mdx:text-[16px] mt-[25px] mdx:mt-[30px] ">
+                                {t('button')}
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

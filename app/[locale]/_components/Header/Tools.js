@@ -1,7 +1,5 @@
 "use client";
-import phone from "@/public/svg/phone.svg";
 import Image from "next/image";
-import backet from "@/public/svg/backet.svg";
 import MenuIcon from "@/app/[locale]/_components/MenuIcon";
 import Menu from "@/app/[locale]/_components/Menu";
 import { useState, useEffect } from "react";
@@ -11,11 +9,13 @@ import uzFlag from "@/public/svg/flags/flag-for-uzbekistan-svgrepo-com.svg";
 import globus from "@/public/svg/header/globus.svg";
 import { useTranslations } from "next-intl";
 import { AnimatePresence } from "framer-motion";
+import TypeService from '../Modal/TypeService'
 
 export default function Tools({ navOptions, locale }) {
   const availableLocales = ["uz", "ru"];
   const [isOpen, setIsOpen] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const t = useTranslations();
 
   const pathname = usePathname();
@@ -41,6 +41,13 @@ export default function Tools({ navOptions, locale }) {
     setMenu(false);   // Закрываем меню
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="flex gap-5 max-mdx:gap-2 justify-between self-stretch my-auto">
       <div className="flex gap-2 text-base items-center whitespace-nowrap my-1 xl:flex-row-reverse">
@@ -89,7 +96,7 @@ export default function Tools({ navOptions, locale }) {
           </div>
         </div>
         <div className="flex items-center gap-4 max-mdx:gap-1 my-auto">
-          <button className="hidden mdx:block bg-[#00863E] hover:bg-[#398f61] w-full px-[52px] max-w-[200px] mdx:h-[50px] font-extrabold">
+          <button onClick={openModal} className="hidden mdx:block bg-[#00863E] hover:bg-[#398f61] w-full px-[52px] max-w-[200px] mdx:h-[50px] font-extrabold">
             <p className="text-white">{t("Header.button")}</p>
           </button>
         </div>
@@ -108,6 +115,7 @@ export default function Tools({ navOptions, locale }) {
           />
         )}
       </AnimatePresence>
+      {isModalOpen && <TypeService closeModal={closeModal} />}
     </div>
   );
 }

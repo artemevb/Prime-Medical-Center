@@ -78,7 +78,7 @@ export default function ContAddress({ closeModal }) {
     };
 
     return (
-        <div className="bg-[#00863E] p-4 pb-9 mdx:px-[40px] lg:py-[40px] xl:px-[80px] 2xl:px-[80px] xl:py-[60px] relative max-w-[1440px] mx-auto w-full">
+        <div className="bg-[#00863E] p-6 pb-9 mdx:px-[40px] lg:py-[40px] xl:px-[60px] xl:py-[50px] relative max-w-[1440px] mx-auto w-full">
             <div className="flex max-xl:flex-col gap-12 max-lg:gap-8 mx-auto w-full h-auto">
                 <div className="lg:flex lg:flex-row lg:justify-between w-full max-w-[1640px] 5xl:max-w-[2000px] mx-auto">
                     <div>

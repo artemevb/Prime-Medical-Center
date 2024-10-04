@@ -1,9 +1,22 @@
+"use client"
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import clinics from "@/public/images/About/images1.png";
+import { useState } from "react";
+import Call from '../Modal/Call'
+
 
 const AboutService = () => {
     const t = useTranslations('About.Clinics');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div className="w-full mx-auto max-xl:mt-[30px]">
@@ -16,7 +29,7 @@ const AboutService = () => {
                         <p className="font-medium text-[16px] mdx:text-[18px] xl:text-[20px] text-[#666666] mdx:mt-[10px] max-w-[628px]">
                             {t('text')}
                         </p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full max-w-[223px] h-[50px] font-extrabold text-[#fff] text-[14px] mdx:text-[16px] mt-[25px] mdx:mt-[30px] ">
+                        <button onClick={openModal} className="bg-[#00863E] hover:bg-[#398f61] w-full max-w-[223px] h-[50px] font-extrabold text-[#fff] text-[14px] mdx:text-[16px] mt-[25px] mdx:mt-[30px] ">
                             {t('button')}
                         </button>
                     </div>
@@ -33,7 +46,7 @@ const AboutService = () => {
                     />
                 </div>
             </div>
-
+            {isModalOpen && <Call closeModal={closeModal} />}
         </div>
     );
 };
