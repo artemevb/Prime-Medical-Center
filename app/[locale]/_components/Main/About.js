@@ -9,7 +9,7 @@ const AboutService = () => {
                 <h2 className="text-[30px] font-semibold mdx:text-[40px] xl:text-[45px]">{t("about_company")}</h2>
                 <h5 className="text-[15px] text-[#666] font-medium max-w-[380px] mdx:text-[18px]">{t("title_company")}</h5>
             </div>
-            <div className="w-full h-full grid grid-cols-1 mdl:grid-cols-2 2xl:grid-cols-4 gap-5 xl:mt-[40px] mt-[20px]">
+            <div className="w-full h-full grid grid-cols-1 mdl:grid-cols-2 2xl:grid-cols-4 gap-5 xl:gap-[6px] xl:mt-[40px] mt-[20px]">
                 
                 {/* Первый круг */}
                 <div className="relative w-full pt-[100%]">
