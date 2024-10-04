@@ -18,7 +18,7 @@ const SignUp = () => {
             <div className="mt-[23px] flex flex-col mdl:grid mdl:grid-cols-2 2xl:grid-cols-3 gap-[16px]">
                 <Link href="#">
                     <div className="w-full border p-[20px] mdx:p-[25px] flex flex-col justify-between min-h-[227px] mdx:min-h-[310px]  xl:min-h-[250px] xl:p-[15px] relative font-semibold">
-                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[26px] lh max-w-[60%]"
+                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[25px] lh max-w-[60%]"
                             dangerouslySetInnerHTML={{ __html: formatText(t("subtitle1")) }}>
                         </h5>
                         <div className="absolute bottom-[20px] right-[20px]">
@@ -36,7 +36,7 @@ const SignUp = () => {
                 </Link>
                 <Link href="#">
                     <div className="w-full border p-[20px] mdx:p-[25px] flex flex-col justify-between min-h-[227px] mdx:min-h-[310px] xl:min-h-[250px] xl:p-[15px] relative font-semibold">
-                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[26px] lh max-mdl:max-w-[80%]"
+                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[25px] lh max-mdl:max-w-[80%]"
                             dangerouslySetInnerHTML={{ __html: formatText(t("subtitle2")) }}>
                         </h5>
                         <div className="absolute bottom-[20px] right-[20px]">
@@ -54,7 +54,7 @@ const SignUp = () => {
                 </Link>
                 <Link href="#">
                     <div className="w-full border p-[20px] mdx:p-[25px] flex flex-col justify-between min-h-[227px] mdx:min-h-[310px] xl:min-h-[250px] xl:p-[15px] relative font-semibold">
-                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[26px] lh max-w-[60%]"
+                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[25px] lh max-w-[60%]"
                             dangerouslySetInnerHTML={{ __html: formatText(t("subtitle3")) }}>
                         </h5>
                         <div className="absolute bottom-[20px] right-[20px]">
@@ -72,7 +72,7 @@ const SignUp = () => {
                 </Link>
                 <Link href="#">
                     <div className="w-full border p-[20px] mdx:p-[25px] flex flex-col justify-between min-h-[227px] mdx:min-h-[310px] xl:min-h-[250px] xl:p-[15px] relative font-semibold">
-                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[26px] lh max-w-[60%]"
+                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[25px] lh max-w-[60%]"
                             dangerouslySetInnerHTML={{ __html: formatText(t("subtitle4")) }}>
                         </h5>
                         <div className="absolute bottom-[20px] right-[20px]">
