@@ -38,7 +38,7 @@ function Footer({ locale }) {
     <div className="flex flex-col justify-center w-full ">
       <div className="flex flex-col w-full bg-[#F9F9F9] max-md:max-w-full ">
         <header className="flex flex-col justify-center items-start xl:items-center px-[16px] py-10 w-full bg-slate-50 max-md:px-5 max-md:max-w-full max-w-[1440px] mx-auto">
-          <div className="flex flex-col self-start w-full mdx:flex-row mdx:self-auto mdx:justify-between">
+          <div className="flex flex-col self-start w-full mdx:flex-row mdx:self-auto mdx:justify-between border-b pb-[30px] mdx:pb-[45px] xl:pb-[40px]">
             <div className="w-[40%] max-md:w-1/2">
               <Image
                 src={Logo_Footer}
