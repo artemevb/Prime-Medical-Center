@@ -75,7 +75,7 @@ function Footer({ locale }) {
                   />
                   <FooterSection
                     locale={locale}
-                    title={{ title: t("Prime Medical Center"), url: "prime-medical-center" }}
+                    title={{ title: t("Prime Medical"), url: "prime-medical-center" }}
                     links={[
                       { title: t("Footer.Navigation.about"), url: "about" },
                       { title: t("Footer.Navigation.doctors"), url: "doctors" },
@@ -88,7 +88,7 @@ function Footer({ locale }) {
             </div>
 
             <div className="mt-[50px] mdx:flex mdx:flex-row  mdx:justify-between w-full">
-              <div className="flex flex-col slg:w-6/12">
+              <div className="w-full flex flex-col slg:w-6/12">
                 <h4 className="font-bold text-[18px] mdx:text-[20px] xl:text-[20px] mb-[16px]">
                   {t("Footer.Navigation.contacts")}
                 </h4>
@@ -104,7 +104,7 @@ function Footer({ locale }) {
                 >
                   administrative@prime-medical.uz
                 </a>
-                <p className="text-[16px] mdx:text-[20px] max-w-[331px] mt-[8px]">
+                <p className="w-full text-[16px] mdx:text-[20px] max-w-[342px] mt-[8px]">
                   {t("Footer.addresses")}
                 </p>
               </div>
