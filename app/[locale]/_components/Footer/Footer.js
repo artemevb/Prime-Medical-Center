@@ -10,6 +10,16 @@ import telegram from "@/public/svg/social/telergam.svg";
 import facebook from "@/public/svg/social/facebook.svg";
 import youtube from "@/public/svg/social/youtube.svg";
 
+// Вспомогательная функция для обработки переносов строк
+const handleNewLines = (text) => {
+  return text.split('\n').map((item, index) => (
+    <span key={index}>
+      {item}
+      <br />
+    </span>
+  ));
+};
+
 const FooterLink = ({ text }) => (
   <div className="mt-[8px] mdx:mt-[12px] font-medium">{text}</div>
 );
@@ -104,8 +114,8 @@ function Footer({ locale }) {
                 >
                   administrative@prime-medical.uz
                 </a>
-                <p className="w-full text-[16px] mdx:text-[20px] max-w-[342px] mt-[8px]">
-                  {t("Footer.addresses")}
+                <p className="w-full text-[16px] mdx:text-[20px] max-w-[344px] mt-[8px]">
+                  {handleNewLines(t("Footer.addresses"))}
                 </p>
               </div>
               <div className="mt-[40px] mdx:mt-[0px] slg:w-6/12">
