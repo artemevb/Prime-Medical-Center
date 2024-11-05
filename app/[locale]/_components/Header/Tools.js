@@ -99,7 +99,7 @@ export default function Tools({ navOptions, locale }) {
           </div>
           
         </div>
-        <div className="border p-[10px] hidden mdl:block xl:hidden ">
+        <div href="tel:+998781131343" className="border p-[10px] hidden mdl:block xl:hidden ">
             <Image src={phone_green} height={100} width={100} quality={100} alt="phone" className="w-[30px] h-[30px]" />
           </div>
         <div className="flex items-center gap-4 max-mdx:gap-1 my-auto">
@@ -111,7 +111,7 @@ export default function Tools({ navOptions, locale }) {
         <div onClick={handleOpenMenu} className="block lg:hidden">
           <MenuIcon />
         </div>
-        <div className="border p-[10px] hidden xl:block">
+        <div href="tel:+998781131343" className="border p-[10px] hidden xl:block">
             <Image src={phone_green} height={100} width={100} quality={100} alt="phone" className="w-[30px] h-[30px]" />
           </div>
       </div>
