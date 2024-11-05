@@ -7,6 +7,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import ruFlag from "@/public/svg/flags/flag-for-russia-svgrepo-com.svg";
 import uzFlag from "@/public/svg/flags/flag-for-uzbekistan-svgrepo-com.svg";
 import globus from "@/public/svg/header/globus.svg";
+import phone_green from "@/public/svg/phone-green.svg";
 import { useTranslations } from "next-intl";
 import { AnimatePresence } from "framer-motion";
 import TypeService from '../Modal/TypeService'
@@ -51,7 +52,9 @@ export default function Tools({ navOptions, locale }) {
   return (
     <div className="flex gap-5 max-mdx:gap-2 justify-between self-stretch my-auto">
       <div className="flex gap-2 text-base items-center whitespace-nowrap my-1 xl:flex-row-reverse">
-        <div className="flex gap-0 justify-center px-2 mdx:px-3 max-mdx:py-2 border-soli text-[#00863E]">
+
+        <div className="flex gap-0 justify-center px-2 mdx:px-3 max-mdx:py-2 border-solid text-[#00863E]">
+
           <div className="relative inline-block text-left">
             <div>
               <button
@@ -94,15 +97,23 @@ export default function Tools({ navOptions, locale }) {
               </div>
             )}
           </div>
+          
         </div>
+        <div className="border p-[10px] hidden mdl:block xl:hidden ">
+            <Image src={phone_green} height={100} width={100} quality={100} alt="phone" className="w-[30px] h-[30px]" />
+          </div>
         <div className="flex items-center gap-4 max-mdx:gap-1 my-auto">
           <button onClick={openModal} className="hidden mdx:block bg-[#00863E] hover:bg-[#398f61] w-full px-[52px] max-w-[200px] mdx:h-[50px] font-extrabold">
             <p className="text-white">{t("Header.button")}</p>
           </button>
         </div>
+
         <div onClick={handleOpenMenu} className="block lg:hidden">
           <MenuIcon />
         </div>
+        <div className="border p-[10px] hidden xl:block">
+            <Image src={phone_green} height={100} width={100} quality={100} alt="phone" className="w-[30px] h-[30px]" />
+          </div>
       </div>
 
       <AnimatePresence>
