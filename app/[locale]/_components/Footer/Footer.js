@@ -77,10 +77,10 @@ function Footer({ locale }) {
                     locale={locale}
                     title={{ title: t("Footer.services"), url: "services" }}
                     links={[
-                      { title: t("Footer.Navigation.laboratory"), url: "laboratory" },
-                      { title: t("Footer.Navigation.consultation"), url: "consultation" },
-                      { title: t("Footer.Navigation.services_1"), url: "services-1" },
-                      { title: t("Footer.Navigation.services_2"), url: "services-2" },
+                      { title: t("Footer.Navigation.laboratory"), url: "services" },
+                      { title: t("Footer.Navigation.consultation"), url: "services" },
+                      { title: t("Footer.Navigation.services_1"), url: "services" },
+                      { title: t("Footer.Navigation.services_2"), url: "services" },
                     ]}
                   />
                   <FooterSection

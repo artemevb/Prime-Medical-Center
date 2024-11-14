@@ -1,9 +1,9 @@
-"use client"
+'use client'
 import Image from "next/image";
 import GreenArrow from "@/public/svg/arrow-right-green-news.svg";
 import { useTranslations } from "next-intl";
 
-export default function NewCard({ key, title, subtitle, date, imageSrc }) {
+export default function NewCardMain({ title, body, date, imageSrc }) {
     const t = useTranslations('News.Main');
 
     return (
@@ -13,7 +13,7 @@ export default function NewCard({ key, title, subtitle, date, imageSrc }) {
                 width={800}
                 height={800}
                 quality={100}
-                alt={`News Image ${key}`}
+                alt={`News Image`}
                 className="w-full h-auto object-cover"
             />
             <div className="w-full flex flex-col flex-grow justify-between mt-[10px] xl:mt-[15px]">
@@ -23,7 +23,7 @@ export default function NewCard({ key, title, subtitle, date, imageSrc }) {
                         {title}
                     </h3>
                     <p className="text-[15px] mdx:text-[16px] xl:text-[18px] lh font-medium text-[#666] mt-[8px] line-clamp-2">
-                        {subtitle}
+                        {body}
                     </p>
                 </div>
 
@@ -35,7 +35,7 @@ export default function NewCard({ key, title, subtitle, date, imageSrc }) {
                     <Image
                         src={GreenArrow}
                         width={25} // Adjusted to match the className width
-                        height={25} // Adjusted to match the className width
+                        height={25} // Adjusted to match the className height
                         quality={100}
                         alt="Green Arrow"
                         className="w-[25px] h-[25px]" // Ensure height matches for consistent sizing

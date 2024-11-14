@@ -6,22 +6,23 @@ import Image from "next/image";
 import logo from "@/public/images/Logoabs.png";
 import logo_top from "@/public/images/Logoabs-top.png";
 import arrow from "@/public/svg/arrow-bottom-light.svg";
+import ModalOk from "../Modal/Ok";
 
-export default function ContAddress({ closeModal }) {
+export default function ContAddress() {
     const t = useTranslations('Main.SignUp');
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const [values, setValues] = useState({
-        name: "", // Full name
-        phone: "", // Phone number
+        name: "", // Полное имя
+        phone: "", // Номер телефона
     });
 
     const [focusedInput, setFocusedInput] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedService, setSelectedService] = useState(t('text-3')); // Default placeholder for dropdown
+    const [selectedService, setSelectedService] = useState(t('text-3')); // Значение по умолчанию для выпадающего списка
 
-    // Services translated using next-intl
+    // Сервисы, переведенные с помощью next-intl
     const services = [
         t('services-1'),
         t('services-2'),
@@ -29,10 +30,20 @@ export default function ContAddress({ closeModal }) {
     ];
 
     const handleInputChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value,
-        });
+        const { name, value } = e.target;
+        if (name === "phone") {
+            // Удаляем все символы, кроме цифр
+            const digitsOnly = value.replace(/\D/g, '');
+            setValues({
+                ...values,
+                [name]: digitsOnly,
+            });
+        } else {
+            setValues({
+                ...values,
+                [name]: value,
+            });
+        }
     };
 
     const validateInput = (name, value) => {
@@ -41,8 +52,8 @@ export default function ContAddress({ closeModal }) {
                 ? { isValid: true, message: t('correct') }
                 : { isValid: false, message: t('enter_full_name') };
         } else if (name === "phone") {
-            const phoneRegex =
-                /^(\+?\d{1,3}[-.\s]?)?(\(?\d{2,3}\)?[-.\s]?)?\d{3,4}[-.\s]?\d{4}$/;
+            // Проверяем, что введены только цифры и длина от 7 до 15 цифр
+            const phoneRegex = /^\d{7,15}$/;
             return phoneRegex.test(value)
                 ? { isValid: true, message: t('correct') }
                 : { isValid: false, message: t('enter_valid_phone_number') };
@@ -62,24 +73,38 @@ export default function ContAddress({ closeModal }) {
 
         const { name, phone } = values;
         if (!name || !phone) {
+            // Можно установить состояния ошибок здесь, если необходимо
             return;
         }
 
+        const payload = {
+            fullName: name,
+            phoneNum: phone,
+            service: selectedService,
+        };
+
         try {
-            const response = await axios.post("https://imed.uz/api/v1/application", values);
-            if (response.status === 200) {
+            const response = await axios.post("https://pmc.result-me.uz/v1/application/create", payload);
+            if (response.status === 200 || response.status === 201) { // В зависимости от ответа API
                 setIsSubmitted(true);
             } else {
                 console.error('Error:', response.statusText);
+                // Можно обработать ответы с ненулевым статусом
             }
         } catch (error) {
             console.error('Error submitting the form:', error);
+            // Можно обработать ошибки (например, отобразить сообщение об ошибке пользователю)
         }
+    };
+
+    const closeModalHandler = () => {
+        setIsSubmitted(false);
+        // Можно сбросить форму или выполнить другие действия
     };
 
     return (
         <div className="bg-[#00863E] p-6 pb-9 mdx:px-[40px] lg:py-[40px] xl:px-[60px] xl:py-[50px] relative max-w-[1440px] mx-auto w-full">
-            <div className="flex max-xl:flex-col gap-12 max-lg:gap-8 mx-auto w-full h-auto">
+            <div className="flex max-xl:flex-col gap-12 max-lg:gap-8 mx-auto w-full h-auto z-10 relative">
                 <div className="lg:flex lg:flex-row lg:justify-between w-full max-w-[1640px] 5xl:max-w-[2000px] mx-auto">
                     <div>
                         <h3 className="text-[25px] text-[#fff] mdx:font-bold mdx:text-[30px] pt-[10px] pb-[17px] mdx:pt-[20px] mdx:pb-[12px] 3xl:text-[35px] xl:pt-0 lh max-mdx:max-w-[50%] ">
@@ -89,7 +114,7 @@ export default function ContAddress({ closeModal }) {
                             {t('subtitle')}
                         </h5>
                     </div>
-                    <form className="flex flex-col gap-9 w-full max-lg:max-w-full max-w-[350px] 3xl:mr-[5%] 4xl:mr-[10%] xl:gap-12" onSubmit={handleSubmit}>
+                    <form className="flex flex-col gap-9 w-full max-lg:max-w-full max-w-[350px] 3xl:mr-[5%] 4xl:mr-[10%] xl:gap-12 z-10 relative" onSubmit={handleSubmit}>
                         {["name", "phone"].map((field) => (
                             <div className="relative" key={field}>
                                 <input
@@ -99,27 +124,25 @@ export default function ContAddress({ closeModal }) {
                                     onChange={handleInputChange}
                                     onFocus={() => setFocusedInput(field)}
                                     onBlur={() => setFocusedInput(null)}
-                                    className={`block w-full px-3 py-2 bg-[#00863E] text-white placeholder-transparent focus:outline-none  border-b-[0.5px] ${focusedInput === field
-                                        ? validateInput(field, values[field]).isValid
-                                            ? "border-[#E1E1E1] opacity-[0.8]"
+                                    inputMode={field === "phone" ? "numeric" : "text"}
+                                    pattern={field === "phone" ? "\\d*" : undefined}
+                                    className={`block w-full px-3 py-2 bg-transparent text-[#FFFFFF] placeholder-[#00863E] focus:outline-none border-b-[0.5px] ${focusedInput === field
+                                            ? validateInput(field, values[field]).isValid
+                                                ? "border-[#E1E1E1] opacity-[0.8]"
+                                                : "border-red-500 opacity-[0.8]"
                                             : "border-[#E1E1E1] opacity-[0.8]"
-                                        : "border-[#E1E1E1] opacity-[0.8]"
                                         }`}
-                                    placeholder={t(
-                                        field === "name"
-                                            ? "full-name"
-                                            : "telephone-number"
-                                    )}
                                 />
+
                                 <label
                                     htmlFor={field}
                                     className={`absolute transition-all text-[16px] mdx:text-[19px] ${focusedInput === field || values[field]
-                                        ? "-top-4 text-xs"
-                                        : "top-1 text-[16px] mdx:text-[20px]"
+                                            ? "-top-4 text-xs"
+                                            : "top-1 text-[16px] mdx:text-[20px]"
                                         } ${focusedInput === field
                                             ? validateInput(field, values[field]).isValid
                                                 ? "text-white opacity-[0.9]"
-                                                : "text-white opacity-[0.9]"
+                                                : "text-red-500 opacity-[0.9]" // Красный цвет при ошибке
                                             : "text-white opacity-[0.9]"
                                         } cursor-text`}
                                     onClick={() => document.getElementsByName(field)[0].focus()}
@@ -133,26 +156,25 @@ export default function ContAddress({ closeModal }) {
                             </div>
                         ))}
                         <div className="relative border-b-[0.5px] border-[#E1E1E1] border-opacity-[0.8] mt-3">
-                            {/* Dropdown Button */}
+                            {/* Кнопка Dropdown */}
                             <button
                                 type="button"
-                                className="w-full bg-[#00863E] text-white opacity-[0.9] text-[16px] mdx:text-[20px] text-left border-[#E1E1E1] pb-[10px]"
+                                className="w-full bg-[#00863E] text-white opacity-[0.9] text-[16px] mdx:text-[20px] text-left border-[#E1E1E1] pb-[10px] flex justify-between items-center"
                                 onClick={toggleDropdown}
                             >
-                                {selectedService}
-                                <span className="float-right">
-                                    <Image
-                                        quality={100}
-                                        src={arrow}
-                                        alt="arrow-green"
-                                        objectFit="contain"
-                                        className="w-full h-auto rounded-full max-w-[32px] mt-1"
-                                    /></span>
+                                <span>{selectedService}</span>
+                                <Image
+                                    quality={100}
+                                    src={arrow}
+                                    alt="arrow-green"
+                                    objectFit="contain"
+                                    className="w-5 h-5"
+                                />
                             </button>
 
-                            {/* Dropdown List */}
+                            {/* Список Dropdown */}
                             {isDropdownOpen && (
-                                <ul className="absolute bg-white border border-gray-300 w-full mt-1 z-10">
+                                <ul className="absolute bg-white border border-gray-300 w-full mt-1 z-20">
                                     {services.map((service, index) => (
                                         <li
                                             key={index}
@@ -168,7 +190,7 @@ export default function ContAddress({ closeModal }) {
                         <div>
                             <button
                                 type="submit"
-                                className="py-[13px] w-full mdx:w-[223px] mdx:px-12 text-[14px] bg-white font-bold hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white xl:w-[224px] xl:text-[16px] text-[#00863E] "
+                                className="py-[13px] w-full mdx:w-[223px] mdx:px-12 text-[14px] bg-white font-bold hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white xl:w-[224px] xl:text-[16px] text-[#00863E]"
                             >
                                 {t('send')}
                             </button>
@@ -176,7 +198,7 @@ export default function ContAddress({ closeModal }) {
                     </form>
                 </div>
             </div>
-            <div className="absolute top-0 right-0 xl:top-auto xl:bottom-0 xl:left-16">
+            <div className="absolute top-0 right-0 xl:top-auto xl:bottom-0 xl:left-16 z-0">
                 <Image
                     priority
                     src={logo_top}
@@ -194,8 +216,12 @@ export default function ContAddress({ closeModal }) {
                     alt="The Wild Oasis logo"
                     quality={100}
                     className="w-full h-auto max-w-[235px] hidden xl:block bottom-0"
+                    style={{ pointerEvents: 'none' }} // Предотвращает перекрытие
                 />
             </div>
+
+            {/* Компонент ModalOk */}
+            {isSubmitted && <ModalOk closeModal={closeModalHandler} />}
         </div>
     );
 }

@@ -86,9 +86,9 @@ export default function Tools({ navOptions, locale }) {
                       className="hover:font-bold transition-all duration-300 flex gap-2 items-center"
                     >
                       {lng === "uz" ? (
-                        <Image src={uzFlag} height={100} width={100} quality={100} alt="Uz Flag" className="w-4 h-4" />
+                        <Image src={uzFlag} height={100} width={100} quality={100} priority alt="Uz Flag" className="w-4 h-4" />
                       ) : (
-                        <Image src={ruFlag} height={100} width={100} quality={100} alt="Ru Flag" className="w-4 h-4" />
+                        <Image src={ruFlag} height={100} width={100} quality={100} priority alt="Ru Flag" className="w-4 h-4" />
                       )}
                       {lng.toUpperCase()}
                     </Link>
@@ -97,11 +97,11 @@ export default function Tools({ navOptions, locale }) {
               </div>
             )}
           </div>
-          
+
         </div>
-        <div href="tel:+998781131343" className="border p-[10px] hidden mdl:block xl:hidden ">
-            <Image src={phone_green} height={100} width={100} quality={100} alt="phone" className="w-[30px] h-[30px]" />
-          </div>
+        <a href="tel:+998781131343" className="border p-[10px] hidden mdl:block xl:hidden ">
+          <Image src={phone_green} height={100} width={100} quality={100} priority alt="phone" className="w-[30px] h-[30px]" />
+        </a>
         <div className="flex items-center gap-4 max-mdx:gap-1 my-auto">
           <button onClick={openModal} className="hidden mdx:block bg-[#00863E] hover:bg-[#398f61] w-full px-[52px] max-w-[200px] mdx:h-[50px] font-extrabold">
             <p className="text-white">{t("Header.button")}</p>
@@ -111,9 +111,9 @@ export default function Tools({ navOptions, locale }) {
         <div onClick={handleOpenMenu} className="block lg:hidden">
           <MenuIcon />
         </div>
-        <div href="tel:+998781131343" className="border p-[10px] hidden xl:block">
-            <Image src={phone_green} height={100} width={100} quality={100} alt="phone" className="w-[30px] h-[30px]" />
-          </div>
+        <a href="tel:+998781131343" className="border p-[10px] hidden xl:block">
+          <Image src={phone_green} height={100} width={100} quality={100} priority alt="phone" className="w-[30px] h-[30px]" />
+        </a>
       </div>
 
       <AnimatePresence>

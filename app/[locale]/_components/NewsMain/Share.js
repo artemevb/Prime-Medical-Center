@@ -15,41 +15,36 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useTranslations } from "next-intl";
 
-export default function NewsTitle() {
+export default function NewsTitle({ locale }) {
     const t = useTranslations('News.Main')
     const [news, setNews] = useState(null)
 
     const { slug } = useParams()
 
     useEffect(() => {
-        // const fetchNewsWithSlug = async () => {
-        //     try {
-        //         const response = await axios.get(
-        //             `https://imed.uz/api/v1/new/get/${slug}`,
-        //             {
-        //                 headers: { 'Accept-Language': lng },
-        //             }
-        //         )
-        //         setNews(response.data.data)
-        //     } catch (error) {
-        //         console.error('Failed to fetch news:', error.message)
-        //         setNews(null) // Reset state if fetching fails
-        //     }
-        // }
-        // fetchNewsWithSlug()
+        const fetchNewsWithSlug = async () => {
+            try {
+                const response = await axios.get(
+                    `https://pmc.result-me.uz/v1/newness/get/${slug}`,
+                    {
+                        headers: { 'Accept-Language': locale },
+                    }
+                )
+                const data = response.data.data;
+                // Берем первое фото из optionList
+                const firstOptionPhoto = data.optionList?.[0]?.photo?.url || newsPhoto;
 
-        // Fake news data
-        const fakeNewsData = {
-            head: {
-                photo: {
-                    url: newsPhoto, // Use your local image or placeholder
-                },
-                title: "", // Replace with appropriate title
-                description: "Заботьтесь о здоровье близких — поделитесь этой важной медицинской новостью с другом", // Replace with appropriate description
-            },
-        };
-        setNews(fakeNewsData);
-    }, [slug])
+                setNews({
+                    ...data,
+                    firstOptionPhoto: firstOptionPhoto, // Сохраняем URL первого фото или резервное изображение
+                });
+            } catch (error) {
+                console.error('Failed to fetch news:', error.message)
+                setNews(null) // Reset state if fetching fails
+            }
+        }
+        fetchNewsWithSlug()
+    }, [locale, slug])
 
     const icons = [
         {
@@ -92,6 +87,8 @@ export default function NewsTitle() {
             })
     }
 
+    if (!news) return <div>Загрузка...</div>; // Показать загрузку, пока данные не получены
+
     return (
         <div className='bg-[#00863E] max-w-[1440px] mx-auto w-full mt-[90px] mdx:mt-[120px] overflow-hidden'>
             <ToastContainer />
@@ -108,21 +105,21 @@ export default function NewsTitle() {
 
                     <div className='max-mdl:mt-[15px] items-center mdl:flex flex justify-center content-center max-mdx:max-w-[288px] w-full h-full mdl:w-full xl:max-w-[345px]'>
                         <Image
-                            src={news?.head.photo?.url}
+                            src={news.firstOptionPhoto}
                             width={500}
                             height={500}
                             quality={100}
                             alt='News Image'
-                            className='relative w-full h-auto max-w-[340px] max-h-[340px] object-cover mdl:w-full mdl:max-h-[280px] mdl:max-w-[280px] mdl:mr-5 xl:max-h-[310px] xl:max-w-[310px] border-2 border-[#fff] z-10'
+                            className='relative w-full h-auto max-w-[340px] max-h-[340px] object-cover mdl:w-full mdl:max-h-[280px] mdl:max-w-[280px] mdl:mr-5 xl:max-h-[310px] xl:max-w-[310px] 4xl:max-h-[345px]  4xl:max-w-[345px] border-2 border-[#fff] z-10'
                         />
                     </div>
                     <div className="mdl:w-full xl:w-auto">
                         <div className='flex flex-col text-[#fff] mdl:flex-1 pb-[24px]'>
                             <h2 className='z-20 mt-8 font-bold text-[25px] xl:mb-3 mdl:text-[30px] xl:text-[35px] xl:max-w-[610px] lh'>
-                                {t('copy-1')}
+                                { t('copy-1')}
                             </h2>
                             <p className='text-[#fff] w-full mt-2 text-[15px] normal-case xl:max-w-[610px] z-20 slg:text-[18px] xl:mt-1 font-medium opacity-[0.8]'>
-                                {news?.head.description || "Поделитесь новостью с друзьями!"}
+                                { "Заботьтесь о здоровье близких — поделитесь этой важной медицинской новостью с другом"}
                             </p>
                         </div>
                         <div className='flex gap-[10px] pb-[40px] mdl:pb-[30px]'>
@@ -155,15 +152,16 @@ export default function NewsTitle() {
                                     <a
                                         href={icon.link}
                                         className='flex items-center justify-center w-full h-full'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <Image
                                             src={icon.src}
                                             width={50}
                                             height={50}
                                             quality={100}
-                                            target='_blank'
                                             alt={icon.alt}
-                                            className='w-full '
+                                            className='w-full'
                                         />
                                     </a>
                                 </div>
@@ -173,6 +171,5 @@ export default function NewsTitle() {
                 </div>
             </div>
         </div>
-
     )
 }

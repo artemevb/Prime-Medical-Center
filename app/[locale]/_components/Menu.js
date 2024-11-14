@@ -8,6 +8,7 @@ import uzFlag from "@/public/svg/flags/flag-for-uzbekistan-svgrepo-com.svg";
 import { Link, usePathname } from "@/i18n/routing";
 import globus from "@/public/svg/header/globus.svg";
 import { useState } from "react";
+import phone_green from "@/public/svg/phone-green.svg";
 
 const Menu = ({ menu, closeMenu, navOptions, locale }) => {
   const t = useTranslations();
@@ -35,7 +36,7 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
     <AnimatePresence>
       {menu && (
         <motion.div
-          className="fixed h-full flex justify-end z-10 w-full bg-modalBg inset-0"
+          className="fixed inset-0 z-10 flex justify-end bg-modalBg h-full w-full"
           variants={backgroundVariants}
           initial="hidden"
           animate="visible"
@@ -44,7 +45,7 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
           onClick={closeMenu}
         >
           <motion.div
-            className="z-10 top-0 right-0 w-[78%] bg-white h-full shadow-md"
+            className="z-20 w-[78%] bg-white h-full shadow-md flex flex-col"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -52,10 +53,11 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
             transition={{ type: "tween", duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Заголовок меню */}
             <div className="border-b py-4 flex">
               <div className="w-full flex justify-between mx-4">
                 <div className="flex justify-end gap-2 items-center w-full">
-                  <div className="flex gap-0 justify-center px-2 mdx:px-3 mt-[6px] border-soli text-[#00863E]">
+                  <div className="flex justify-center px-2 mdx:px-3 mt-[6px] text-[#00863E]">
                     <div className="relative inline-block text-left">
                       <div>
                         <button
@@ -63,9 +65,23 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
                           className="inline-flex justify-center w-full items-center bg-white text-base font-medium text-[#00863E]"
                           onClick={toggleDropdown}
                         >
-                          <Image priority src={globus} width={25} height={25} alt="globus icons" quality={100} className="mr-[8px]" />
+                          <Image
+                            priority
+                            src={globus}
+                            width={25}
+                            height={25}
+                            alt="globus icons"
+                            quality={100}
+                            className="mr-[8px]"
+                          />
                           {locale.toUpperCase()}
-                          <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <svg
+                            className="h-5 w-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
                             <path
                               fillRule="evenodd"
                               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -87,9 +103,25 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
                                 className="hover:font-bold transition-all duration-300 flex gap-2 items-center"
                               >
                                 {lng === "uz" ? (
-                                  <Image src={uzFlag} height={100} width={100} quality={100} alt="Uz Flag" className="w-4 h-4" />
+                                  <Image
+                                    src={uzFlag}
+                                    height={100}
+                                    width={100}
+                                    quality={100}
+                                    priority
+                                    alt="Uz Flag"
+                                    className="w-4 h-4"
+                                  />
                                 ) : (
-                                  <Image src={ruFlag} height={100} width={100} quality={100} alt="Ru Flag" className="w-4 h-4" />
+                                  <Image
+                                    src={ruFlag}
+                                    height={100}
+                                    width={100}
+                                    priority
+                                    quality={100}
+                                    alt="Ru Flag"
+                                    className="w-4 h-4"
+                                  />
                                 )}
                                 {lng.toUpperCase()}
                               </Link>
@@ -106,22 +138,47 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
               </div>
             </div>
 
-            <nav className="flex flex-col font-semibold">
-              {navOptions.map((option) => (
-                <a
-                  key={option.id}
-                  href={`/${locale}${option.url}`}
-                  onClick={closeMenu}
-                  passHref
-                >
-                  <div className="py-6 border-b">
-                    <div className="flex justify-between mx-4">
-                      {option.name}
-                      <RightIcon />
+            {/* Навигация и Контактная информация */}
+            <nav className="flex flex-col flex-1">
+              {/* Навигационные пункты */}
+              <div>
+                {navOptions.map((option) => (
+                  <a
+                    key={option.id}
+                    href={`/${locale}${option.url}`}
+                    onClick={closeMenu}
+                    passHref
+                  >
+                    <div className="py-6 border-b">
+                      <div className="flex justify-between mx-4">
+                        {option.name}
+                        <RightIcon />
+                      </div>
                     </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Контактная информация */}
+              <div className="mt-auto">
+                <a href="tel:+998781131343" className="w-full flex items-center px-4 py-4">
+                  <div className="mr-2">
+                    <Image
+                      src={phone_green}
+                      height={30}
+                      width={30}
+                      quality={100}
+                      priority
+                      alt="phone"
+                      className="w-[30px] h-[30px]"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-[#00863E]">+998 (78) 113 13 43</div>
+                    <div className="text-gray-500 text-sm font-medium">Связаться с нами</div>
                   </div>
                 </a>
-              ))}
+              </div>
             </nav>
           </motion.div>
         </motion.div>
