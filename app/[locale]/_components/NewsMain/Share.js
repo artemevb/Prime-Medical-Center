@@ -116,10 +116,10 @@ export default function NewsTitle({ locale }) {
                     <div className="mdl:w-full xl:w-auto">
                         <div className='flex flex-col text-[#fff] mdl:flex-1 pb-[24px]'>
                             <h2 className='z-20 mt-8 font-bold text-[25px] xl:mb-3 mdl:text-[30px] xl:text-[35px] xl:max-w-[610px] lh'>
-                                { t('copy-1')}
+                                {t('copy-1')}
                             </h2>
                             <p className='text-[#fff] w-full mt-2 text-[15px] normal-case xl:max-w-[610px] z-20 slg:text-[18px] xl:mt-1 font-medium opacity-[0.8]'>
-                                { "Заботьтесь о здоровье близких — поделитесь этой важной медицинской новостью с другом"}
+                                {"Заботьтесь о здоровье близких — поделитесь этой важной медицинской новостью с другом"}
                             </p>
                         </div>
                         <div className='flex gap-[10px] pb-[40px] mdl:pb-[30px]'>

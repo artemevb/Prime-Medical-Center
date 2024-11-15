@@ -24,7 +24,6 @@ export default function NewsDetailPage({ params }) {
 
                 const result = await response.json();
 
-                // Логирование ответа для отладки
                 console.log('API Response:', result);
 
                 if (response.ok) {

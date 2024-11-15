@@ -1,21 +1,24 @@
-'use client'
-import Image from "next/image";
-import GreenArrow from "@/public/svg/arrow-right-green-news.svg";
-import { useTranslations } from "next-intl";
+'use client';
+import Image from 'next/image';
+import GreenArrow from '@/public/svg/arrow-right-green-news.svg';
+import { useTranslations } from 'next-intl';
 
 export default function NewCardMain({ title, body, date, imageSrc }) {
     const t = useTranslations('News.Main');
 
     return (
         <div className="w-full bg-white h-full flex flex-col justify-between">
-            <Image
-                src={imageSrc}
-                width={800}
-                height={800}
-                quality={100}
-                alt={`News Image`}
-                className="w-full h-auto object-cover"
-            />
+            {/* Image Container with fixed aspect ratio */}
+            <div className="relative w-full aspect-w-4 aspect-h-3 overflow-hidden">
+                <Image
+                    src={imageSrc}
+                    layout="fill" // Fill the container
+                    objectFit="cover" // Maintain aspect ratio, crop to fit
+                    quality={100}
+                    alt="News Image"
+                    className="object-cover"
+                />
+            </div>
             <div className="w-full flex flex-col flex-grow justify-between mt-[10px] xl:mt-[15px]">
                 {/* Combined Title and Subtitle with Line Clamp */}
                 <div className="line-clamp-4">
@@ -34,11 +37,11 @@ export default function NewCardMain({ title, body, date, imageSrc }) {
                     </p>
                     <Image
                         src={GreenArrow}
-                        width={25} // Adjusted to match the className width
-                        height={25} // Adjusted to match the className height
+                        width={25}
+                        height={25}
                         quality={100}
                         alt="Green Arrow"
-                        className="w-[25px] h-[25px]" // Ensure height matches for consistent sizing
+                        className="w-[25px] h-[25px]"
                     />
                 </div>
             </div>

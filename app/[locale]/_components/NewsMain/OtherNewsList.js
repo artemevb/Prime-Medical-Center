@@ -56,15 +56,9 @@ export default function OtherNewsList({ locale, currentSlug }) {
                                 <p className="text-[16px] lh font-medium text-[#666] mt-[8px] line-clamp-2">
                                     {firstOption.body || 'Описание отсутствует'}
                                 </p>
-                                <div className="text-sm text-gray-500">
-                                    {new Date(item.createdDate).toLocaleDateString(locale, {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric',
-                                    })}
-                                </div>
+
                                 <div className="flex flex-row gap-[5px] items-center mt-[10px]">
-                                    <p className="text-[#00863E] xl:text-[20px] text-[16px] mdx:text-[18px] font-bold">
+                                    <p className="text-[#00863E] hover:text-[#41a56f] xl:text-[20px] text-[16px] mdx:text-[18px] font-bold hover:ml-2 transition-all duration-300">
                                         {t('button')}
                                     </p>
                                     <Image
@@ -73,7 +67,7 @@ export default function OtherNewsList({ locale, currentSlug }) {
                                         height={25}
                                         quality={100}
                                         alt="Green Arrow"
-                                        className="w-[25px] h-[25px]"
+                                        className="w-[25px] h-[25px] "
                                     />
                                 </div>
                             </div>

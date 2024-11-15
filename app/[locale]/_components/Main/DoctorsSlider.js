@@ -1,42 +1,47 @@
 "use client"
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import Doctor1 from "@/public/images/Main/slieder1.png";
-import Doctor2 from "@/public/images/Main/slider2.png";
 import NewCardMain from './NewCardMain'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import Link from "next/link";
 
-const DoctorsSlider = ({locale}) => {
+const DoctorsSlider = ({ locale }) => {
     const t = useTranslations('Main.DoctorsSlider');
+    const [news, setNews] = useState([]) // Состояние для новостей
+    const [loading, setLoading] = useState(true) // Состояние загрузки
+    const [error, setError] = useState(null) // Состояние ошибки
 
-    const data = [
-        {
-            slug: 'news-1',
-            title: 'Муминов Хусниёрбек Мухсинжон угли',
-            date: '27.2.2024',
-            imageSrc: Doctor1,
-        },
-        {
-            slug: 'news-2',
-            title: 'Муминов Хусниёрбек Мухсинжон угли',
-            date: '28.2.2024',
-            imageSrc: Doctor2,
-        },
-        {
-            slug: 'news-3',
-            title: 'Муминов Хусниёрбек Мухсинжон угли',
-            date: '29.2.2024',
-            imageSrc: Doctor1,
-        },
-        {
-            slug: 'news-4',
-            title: 'Кодирова Мухайе Лукмоновна',
-            date: '1.3.2024',
-            imageSrc: Doctor2,
-        },
-    ];
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            setLoading(true)
+            setError(null)
+
+            try {
+                const response = await axios.get(
+                    'https://pmc.result-me.uz/v1/doctor/get-all',
+                    {
+                        headers: { 'Accept-Language': locale },
+                    }
+                )
+                console.log('Полученные данные:', response.data.data) // Вывод данных в консоль
+                setNews(response.data.data) // Обновляем новости из ответа
+            } catch (error) {
+                console.error('Ошибка при получении данных:', error.message)
+                setError('Не удалось загрузить данные')
+            } finally {
+                setLoading(false) // Выключаем индикатор загрузки
+            }
+        }
+
+        fetchNews()
+    }, [locale])
+
+    if (loading) return <div>Загрузка...</div>
+    if (error) return <div>{error}</div>
 
     const settings = {
         infinite: true,
@@ -76,21 +81,22 @@ const DoctorsSlider = ({locale}) => {
 
     return (
         <div className="w-full max-w-[1440px] mx-auto px-[16px]">
-            {data.length > 0 && (
+            {news.length > 0 && (
                 <div className='flex flex-col gap-[45px]'>
                     <h2 className="text-[30px] mdx:text-[40px] xl:text-[45px] font-semibold">
                         {t("title")}
                     </h2>
                     <div className='w-full h-auto '>
                         <Slider {...settings} className='h-auto w-full '>
-                            {data.map((item, i) => {
+                            {news.map((item, i) => {
                                 return (
                                     <div className='px-[10px] xl:h-[520px] 3xl:h-[540px] max-h-full' key={i}>
                                         <a href={`/${locale}/doctors/${item.slug}`}>
                                             <NewCardMain
-                                                title={item.title}
+                                                title={item.fullName || 'Нет имени'}
                                                 date={item.date}
-                                                imageSrc={item.imageSrc}
+                                                imageSrc={item.photo?.url || '@/public/images/Main/slider2.png'}
+                                                specializationList={item.specializationList}
                                             />
                                         </a>
                                     </div>

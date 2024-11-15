@@ -11,7 +11,7 @@ export const metadata = {
     template: "%s | Prime Medical Center",
     default: "Prime Medical Center"
   },
-  description: "Prime Medical Center - Ваш надежный медицинский центр.",
+  description: "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
@@ -23,18 +23,14 @@ export default async function LocaleLayout({ children, params }) {
   const { locale } = params;
   const messages = await getMessages(locale);
 
-  // Определяем заголовок страницы. Можно расширить для поддержки локалей.
-  const pageTitle = metadata.title.default; // Здесь можно добавить динамическое название страницы
-  const pageDescription = metadata.description; // Здесь можно добавить динамическое описание страницы
+  const pageTitle = metadata.title.default;
+  const pageDescription = metadata.description;
 
   return (
     <html lang={locale}>
       <Head>
-        {/* Устанавливаем заголовок страницы */}
         <title>{pageTitle}</title>
-        {/* Устанавливаем метатег description */}
         <meta name="description" content={pageDescription} />
-        {/* Иконки сайта */}
         <link rel="icon" href={metadata.icons.icon} />
         <link rel="apple-touch-icon" href={metadata.icons.apple} />
         <link rel="shortcut icon" href={metadata.icons.shortcut} />
