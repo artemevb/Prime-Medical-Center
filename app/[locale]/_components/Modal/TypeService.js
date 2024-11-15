@@ -17,10 +17,10 @@ export default function QuestionSent({ closeModal }) {
 
     const handleClose = () => {
         closeModal();
-        setShowModalOk(false); // Закрытие ModalOk, когда основное модальное окно закрывается
+        setShowModalOk(false); 
     };
 
-    // Function to handle newline characters \n
+
     const formatText = (text) => {
         return text.split('\n').map((line, index) => (
             <span key={index}>
@@ -50,7 +50,8 @@ export default function QuestionSent({ closeModal }) {
     const services = [
         t('services-1'),
         t('services-2'),
-        t('services-3')
+        t('services-3'),
+        t('services-4')
     ];
 
     const handleInputChange = (e) => {

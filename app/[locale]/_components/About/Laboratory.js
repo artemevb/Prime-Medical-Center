@@ -1,8 +1,12 @@
+'use client'
+
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import doctor1 from "@/public/images/About/doctor1.png";
 import doctor2 from "@/public/images/About/doctor2.png";
 import big_doctors from "@/public/images/About/big_doctors.png";
+import TypeService from '../Modal/TypeService'
+import { useState, useEffect } from "react";
 
 const replaceNewLines = (text) => {
     return text.split('\n').map((str, index) => (
@@ -15,6 +19,16 @@ const replaceNewLines = (text) => {
 
 const Laboratory = () => {
     const t = useTranslations('About.Laboratory');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div className="w-full mx-auto max-w-[1440px]">
@@ -63,12 +77,13 @@ const Laboratory = () => {
                         <p className="font-medium text-[16px] mdx:text-[18px] xl:text-[20px] text-[#323232] max-w-[628px] xl:mt-[40px]">
                             {replaceNewLines(t('text'))}
                         </p>
-                        <button className="bg-[#00863E] hover:bg-[#398f61] w-full max-w-[223px] h-[50px] font-extrabold text-[#fff] text-[14px] mdx:text-[16px] mt-[25px] mdx:mt-[30px] xl:mt-[45px]">
+                        <button onClick={openModal} className="bg-[#00863E] hover:bg-[#398f61] w-full max-w-[223px] h-[50px] font-extrabold text-[#fff] text-[14px] mdx:text-[16px] mt-[25px] mdx:mt-[30px] xl:mt-[45px]">
                             {t('button')}
                         </button>
                     </div>
                 </div>
             </div>
+            {isModalOpen && <TypeService closeModal={closeModal} />}
         </div>
     );
 };
