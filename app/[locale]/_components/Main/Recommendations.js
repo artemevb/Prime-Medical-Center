@@ -13,7 +13,7 @@ if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-const SignUp = () => {
+const SignUp = ({ locale }) => {
     const t = useTranslations('Main.Recommendations');
 
     // Функция для преобразования \n в <br />
@@ -58,7 +58,6 @@ const SignUp = () => {
             animateBlock(block5Ref, { from: { opacity: 0, y: 150 }, to: { opacity: 1, y: 0, duration: 2, ease: "power3.out" } });
         });
 
-        // Очистка анимаций при размонтировании компонента
         return () => {
             mm.revert(); // Удаляет все анимации, установленные через matchMedia
         };
@@ -148,38 +147,38 @@ const SignUp = () => {
                         </div>
                     </div>
                 </Link>
-                <Link href="recomendation-list" ref={block5Ref} className="w-full border p-[20px] mdx:p-[25px] flex flex-col  min-h-[227px] mdx:min-h-[310px]  xl:min-h-[250px] xl:p-[15px] relative 2xl:col-span-2 bg-[#00863E] text-white col-span-2 last:col-span xl:hover:ml-2 transition-all duration-300">
-                    {/* Last block stretching to 100% on 2xl */}
-
-                    <h5 className="text-[18px] mdx:text-[24px] xl:text-[26px] lh max-w-[283px] mdx:max-w-[323px] mdl:max-w-full font-semibold"
-                        dangerouslySetInnerHTML={{ __html: formatText(t("subtitle5")) }}>
-                    </h5>
-                    <p className="mt-[8px] text-[15px] mdx:text-[18px] lh max-w-[283px] mdx:max-w-[323px] mdl:max-w-[478px] mdx:mt-[12px]"
-                        dangerouslySetInnerHTML={{ __html: formatText(t("subtitle5-text")) }}>
-                    </p>
-                    <div className="absolute bottom-[20px] right-[20px]">
-                        <button className='rounded-full w-[60px] h-[60px] bg-[#F3F7FB] flex items-center justify-center'>
+                <Link href={`/${locale}/news`} className="w-full border p-[20px] mdx:p-[25px] flex flex-col min-h-[227px] mdx:min-h-[310px] xl:min-h-[250px] xl:p-[15px] relative 2xl:col-span-2 bg-[#00863E] text-white col-span-2 last:col-span xl:hover:ml-2 transition-all duration-300">
+                    {/* Переносим реф на внутренний div */}
+                    <div ref={block5Ref} className="w-full h-full flex flex-col justify-between">
+                        <h5 className="text-[18px] mdx:text-[24px] xl:text-[26px] lh max-w-[283px] mdx:max-w-[323px] mdl:max-w-full font-semibold"
+                            dangerouslySetInnerHTML={{ __html: formatText(t("subtitle5")) }}>
+                        </h5>
+                        {/* <p className="mt-[8px] text-[15px] mdx:text-[18px] lh max-w-[283px] mdx:max-w-[323px] mdl:max-w-[478px] mdx:mt-[12px]"
+                            dangerouslySetInnerHTML={{ __html: formatText(t("subtitle5-text")) }}>
+                        </p> */}
+                        <div className="absolute bottom-[20px] right-[20px]">
+                            <button className='rounded-full w-[60px] h-[60px] bg-[#F3F7FB] flex items-center justify-center'>
+                                <Image
+                                    quality={100}
+                                    src={arrow}
+                                    alt="arrow-green"
+                                    objectFit="contain"
+                                    className="w-full h-auto rounded-full max-w-[32px]"
+                                />
+                            </button>
+                        </div>
+                        <div className="absolute bottom-0 right-3 mdl:left-12">
                             <Image
+                                priority
+                                src={logo}
+                                width={270}
+                                height={270}
+                                alt="logo prime"
                                 quality={100}
-                                src={arrow}
-                                alt="arrow-green"
-                                objectFit="contain"
-                                className="w-full h-auto rounded-full max-w-[32px]"
+                                className="w-full h-auto max-w-[141px]"
                             />
-                        </button>
+                        </div>
                     </div>
-                    <div className="absolute bottom-0 right-3 mdl:left-12">
-                        <Image
-                            priority
-                            src={logo}
-                            width={270}
-                            height={270}
-                            alt="The Wild Oasis logo"
-                            quality={100}
-                            className="w-full h-auto max-w-[141px]"
-                        />
-                    </div>
-
                 </Link>
             </div>
         </div>
@@ -187,3 +186,4 @@ const SignUp = () => {
 };
 
 export default SignUp;
+

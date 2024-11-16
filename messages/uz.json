@@ -61,7 +61,7 @@
             "subtitle2": "14C-ureaza nafas testiga tayyorgarlik uchun eslatma - Helicobacter pylori test",
             "subtitle3": "Qon yig'ish bo'yicha eslatma",
             "subtitle4": "Najastni yig'ish bo'yicha eslatma",
-            "subtitle5": "Bepul kalsiy tahlili",
+            "subtitle5": "Eng so‘nggi aksiyalar bizning yangiliklarimizda!",
             "subtitle5-text": "Shoshiling, aksiya cheklangan muddat davomida amal qiladi. Batafsil ma'lumot uchun +998 78 113 13 43 raqamiga qo'ng'iroq qiling"
         },
         "DoctorsSlider": {
@@ -80,14 +80,15 @@
             "correct": "To'g'ri",
             "services-1": "Mutaxassis maslahati",
             "services-2": "Funksional diagnostika",
-            "services-3": "Endoskopiya"
+            "services-3": "Endoskopiya",
+            "services-4": "Tahlillar"
         },
         "Contacts": {
             "title": "Kontaktlar",
             "subtitle-1": "O'zbekiston, Toshkent, Olmazor tumani, Beruniy ko'chasi, 1-uy",
             "text-1": "Manzil",
             "text-2": "Telefon",
-            "subtitle-3": "Dushanba-Shanba — 8:00-18:00",
+            "subtitle-3": "Du-Sha — 8:00-22:00",
             "text-3": "Ish vaqti",
             "text-4": "Elektron pochta"
         }

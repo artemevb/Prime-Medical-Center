@@ -176,10 +176,10 @@ function Footer({ locale }) {
             <div className="shrink-0 h-px bg-neutral-200 max-md:max-w-full" />
             <div className="flex gap-5 mt-2.5 xl:my-[15px] max-md:flex-wrap max-md:max-w-full items-center">
               <p className="flex-auto my-auto text-[#B3B3B3]">© 2024 {t("Footer.info")}</p>
-              <a
+              <Link
                 target="_blank"
                 rel="noopener noreferrer" // Добавлено для безопасности
-                href="#"
+                href="https://result-me.uz/"
                 className="flex items-center"
               >
                 <Image
@@ -190,7 +190,7 @@ function Footer({ locale }) {
                   alt="Result logo"
                   className="h-full max-h-10 w-auto"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </footer>

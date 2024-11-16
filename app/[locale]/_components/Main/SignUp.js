@@ -26,7 +26,8 @@ export default function ContAddress() {
     const services = [
         t('services-1'),
         t('services-2'),
-        t('services-3')
+        t('services-3'),
+        t('services-4')
     ];
 
     const handleInputChange = (e) => {

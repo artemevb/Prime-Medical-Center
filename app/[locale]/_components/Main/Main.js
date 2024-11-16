@@ -13,7 +13,7 @@ export default function Main({ params }) {
       <AboutCenter />
       <About />
       <OurServices />
-      <Recommendations />
+      <Recommendations locale={params.locale}/>
       <DoctorsSlider locale={params.locale} />
       <div className="mx-[10px]">
         <SignUp />

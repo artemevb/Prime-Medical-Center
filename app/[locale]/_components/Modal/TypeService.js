@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -17,9 +16,8 @@ export default function QuestionSent({ closeModal }) {
 
     const handleClose = () => {
         closeModal();
-        setShowModalOk(false); 
+        setShowModalOk(false);
     };
-
 
     const formatText = (text) => {
         return text.split('\n').map((line, index) => (
@@ -55,10 +53,20 @@ export default function QuestionSent({ closeModal }) {
     ];
 
     const handleInputChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value,
-        });
+        const { name, value } = e.target;
+        if (name === "phone") {
+            // Allow only digits, plus sign, spaces, dashes, and parentheses
+            const filteredValue = value.replace(/[^\d+()\s-]/g, '');
+            setValues({
+                ...values,
+                [name]: filteredValue,
+            });
+        } else {
+            setValues({
+                ...values,
+                [name]: value,
+            });
+        }
     };
 
     const validateInput = (name, value) => {
@@ -67,8 +75,8 @@ export default function QuestionSent({ closeModal }) {
                 ? { isValid: true, message: t('correct') }
                 : { isValid: false, message: t('enter_full_name') };
         } else if (name === "phone") {
-            const phoneRegex =
-                /^(\+?\d{1,3}[-.\s]?)?(\(?\d{2,3}\)?[-.\s]?)?\d{3,4}[-.\s]?\d{4}$/;
+            // Обновленное регулярное выражение для телефонов с поддержкой скобок
+            const phoneRegex = /^\+?[\d\s()-]{7,20}$/;
             return phoneRegex.test(value)
                 ? { isValid: true, message: t('correct') }
                 : { isValid: false, message: t('enter_valid_phone_number') };
@@ -138,29 +146,30 @@ export default function QuestionSent({ closeModal }) {
                         {["name", "phone"].map((field) => (
                             <div className="relative" key={field}>
                                 <input
-                                    type="text"
+                                    type={field === "phone" ? "tel" : "text"} // Change type to "tel" for phone
                                     name={field}
                                     value={values[field]}
                                     onChange={handleInputChange}
                                     onFocus={() => setFocusedInput(field)}
                                     onBlur={() => setFocusedInput(null)}
                                     className={`block w-full px-3 py-2  text-[#666666] placeholder-transparent focus:outline-none border-b-2 ${focusedInput === field
-                                        ? validateInput(field, values[field]).isValid
-                                            ? "border-[#EEEEEE] text-black"
-                                            : "border-red-500 text-black" // Change border color on validation error
-                                        : "border-[#EEEEEE] text-black"
+                                            ? validateInput(field, values[field]).isValid
+                                                ? "border-[#EEEEEE] text-black"
+                                                : "border-red-500 text-black" // Change border color on validation error
+                                            : "border-[#EEEEEE] text-black"
                                         }`}
                                     placeholder={t(
                                         field === "name"
                                             ? "full-name"
                                             : "telephone-number"
                                     )}
+                                    inputMode={field === "phone" ? "numeric" : undefined} // Suggest numeric keypad on mobile
                                 />
                                 <label
                                     htmlFor={field}
                                     className={`absolute transition-all text-[16px] mdx:text-[19px]  ${focusedInput === field || values[field]
-                                        ? "-top-4 text-xs"
-                                        : "top-1 text-[16px] mdx:text-[20px]"
+                                            ? "-top-4 text-xs"
+                                            : "top-1 text-[16px] mdx:text-[20px]"
                                         } ${focusedInput === field
                                             ? "text-[#666666] opacity-[0.8]"
                                             : "text-[#666666] opacity-[0.8]"

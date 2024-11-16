@@ -54,7 +54,7 @@ export default function QuestionSent({ closeModal }) {
                 </div>
                 <div className='w-full mt-[30px] mdx:mt-[50px] '>
                     <div className=" border-b pb-[30px] ">
-                        <a href="https://t.me/prime_medical_center" target="_blank" className="flex flex-row items-center justify-between w-full">
+                        <a href="https://t.me/Prime_medical" target="_blank" className="flex flex-row items-center justify-between w-full">
                             <div >
                                 <Image
                                     src={telegram}
