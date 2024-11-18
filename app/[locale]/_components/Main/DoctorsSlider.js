@@ -27,7 +27,6 @@ const DoctorsSlider = ({ locale }) => {
                         headers: { 'Accept-Language': locale },
                     }
                 )
-                console.log('Полученные данные:', response.data.data) // Вывод данных в консоль
                 setNews(response.data.data) // Обновляем новости из ответа
             } catch (error) {
                 console.error('Ошибка при получении данных:', error.message)

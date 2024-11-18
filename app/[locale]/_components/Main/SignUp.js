@@ -16,6 +16,7 @@ export default function ContAddress() {
     const [values, setValues] = useState({
         name: "", // Полное имя
         phone: "", // Номер телефона
+        comment: "", // Комментарий
     });
 
     const [focusedInput, setFocusedInput] = useState(null);
@@ -58,6 +59,10 @@ export default function ContAddress() {
             return phoneRegex.test(value)
                 ? { isValid: true, message: t('correct') }
                 : { isValid: false, message: t('enter_valid_phone_number') };
+        } else if (name === "comment") {
+            return value.length <= 500
+                ? { isValid: true, message: t('correct') }
+                : { isValid: false, message: t('comment_too_long') };
         }
         return { isValid: true, message: "" };
     };
@@ -72,7 +77,7 @@ export default function ContAddress() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { name, phone } = values;
+        const { name, phone, comment } = values;
         if (!name || !phone) {
             // Можно установить состояния ошибок здесь, если необходимо
             return;
@@ -82,6 +87,7 @@ export default function ContAddress() {
             fullName: name,
             phoneNum: phone,
             service: selectedService,
+            comment: comment, // Добавляем комментарий
         };
 
         try {
@@ -95,6 +101,21 @@ export default function ContAddress() {
         } catch (error) {
             console.error('Error submitting the form:', error);
             // Можно обработать ошибки (например, отобразить сообщение об ошибке пользователю)
+        }
+    };
+
+    const handleAppointmentClick = async () => {
+        try {
+            const response = await fetch('https://pmc.result-me.uz/v1/counter/add?button=MAKE_AN_APPOINTMENT', {
+                method: 'POST',
+            });
+            if (response.ok) {
+                // Успешный запрос
+            } else {
+                // Ошибка запроса
+            }
+        } catch (error) {
+            // Обработка ошибки
         }
     };
 
@@ -128,18 +149,18 @@ export default function ContAddress() {
                                     inputMode={field === "phone" ? "numeric" : "text"}
                                     pattern={field === "phone" ? "\\d*" : undefined}
                                     className={`block w-full px-3 py-2 bg-transparent text-[#FFFFFF] placeholder-[#00863E] focus:outline-none border-b-[0.5px] ${focusedInput === field
-                                            ? validateInput(field, values[field]).isValid
-                                                ? "border-[#E1E1E1] opacity-[0.8]"
-                                                : "border-red-500 opacity-[0.8]"
-                                            : "border-[#E1E1E1] opacity-[0.8]"
+                                        ? validateInput(field, values[field]).isValid
+                                            ? "border-[#E1E1E1] opacity-[0.8]"
+                                            : "border-red-500 opacity-[0.8]"
+                                        : "border-[#E1E1E1] opacity-[0.8]"
                                         }`}
                                 />
 
                                 <label
                                     htmlFor={field}
                                     className={`absolute transition-all text-[16px] mdx:text-[19px] ${focusedInput === field || values[field]
-                                            ? "-top-4 text-xs"
-                                            : "top-1 text-[16px] mdx:text-[20px]"
+                                        ? "-top-4 text-xs"
+                                        : "top-1 text-[16px] mdx:text-[20px]"
                                         } ${focusedInput === field
                                             ? validateInput(field, values[field]).isValid
                                                 ? "text-white opacity-[0.9]"
@@ -156,6 +177,44 @@ export default function ContAddress() {
                                 </label>
                             </div>
                         ))}
+
+                        {/* Новое поле "Комментарий" */}
+                        <div className="relative" key="comment">
+                            <input
+                                name="comment"
+                                value={values.comment}
+                                onChange={handleInputChange}
+                                onFocus={() => setFocusedInput("comment")}
+                                onBlur={() => setFocusedInput(null)}
+                                className={`block w-full px-3 py-2 bg-transparent text-[#FFFFFF] placeholder-[#00863E] focus:outline-none border-b-[0.5px] ${focusedInput === "comment"
+                                    ? validateInput("comment", values.comment).isValid
+                                        ? "border-[#E1E1E1] opacity-[0.8]"
+                                        : "border-red-500 opacity-[0.8]"
+                                    : "border-[#E1E1E1] opacity-[0.8]"
+                                    } resize-none`}
+                                rows={4}
+                                maxLength={500} // Ограничение длины
+                            />
+
+                            <label
+                                htmlFor="comment"
+                                className={`absolute transition-all text-[16px] mdx:text-[19px] ${focusedInput === "comment" || values.comment
+                                    ? "-top-4 text-xs"
+                                    : "top-1 text-[16px] mdx:text-[20px]"
+                                    } ${focusedInput === "comment"
+                                        ? validateInput("comment", values.comment).isValid
+                                            ? "text-white opacity-[0.9]"
+                                            : "text-red-500 opacity-[0.9]" // Красный цвет при ошибке
+                                        : "text-white opacity-[0.9]"
+                                    } cursor-text`}
+                                onClick={() => document.getElementsByName("comment")[0].focus()}
+                            >
+                                {focusedInput === "comment" && values.comment.length > 0
+                                    ? validateInput("comment", values.comment).message
+                                    : t('comment')} {/* Добавьте соответствующий ключ в переводы */}
+                            </label>
+                        </div>
+
                         <div className="relative border-b-[0.5px] border-[#E1E1E1] border-opacity-[0.8] mt-3">
                             {/* Кнопка Dropdown */}
                             <button
@@ -191,6 +250,7 @@ export default function ContAddress() {
                         <div>
                             <button
                                 type="submit"
+                                onClick={handleAppointmentClick}
                                 className="py-[13px] w-full mdx:w-[223px] mdx:px-12 text-[14px] bg-white font-bold hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white xl:w-[224px] xl:text-[16px] text-[#00863E]"
                             >
                                 {t('send')}

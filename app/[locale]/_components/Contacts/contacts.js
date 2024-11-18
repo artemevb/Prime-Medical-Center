@@ -25,7 +25,7 @@ const Contacts = () => {
                 </div>
             </div>
             <div className="mt-[16px] xl:mt-[24px]">
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac9aa481ad71a76bcfed7a8f63710fd88297c51cbc39862a89fe247b752f0e27b&amp;source=constructor" width="100%" height="400" frameborder="0" className="min-h-[250px] mdx:min-h-[400px] xl:min-h-[550px]"></iframe>
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac9aa481ad71a76bcfed7a8f63710fd88297c51cbc39862a89fe247b752f0e27b&amp;source=constructor" width="100%" height="400" frameBorder="0" className="min-h-[250px] mdx:min-h-[400px] xl:min-h-[550px]"></iframe>
             </div>
         </div>
     );

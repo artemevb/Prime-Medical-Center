@@ -81,7 +81,8 @@
             "services-1": "Mutaxassis maslahati",
             "services-2": "Funksional diagnostika",
             "services-3": "Endoskopiya",
-            "services-4": "Tahlillar"
+            "services-4": "Tahlillar",
+            "comment": "Izoh"
         },
         "Contacts": {
             "title": "Kontaktlar",
@@ -204,6 +205,127 @@
         "services-2": "Funksional diagnostika",
         "services-3": "Endoskopiya",
         "services-4": "Tahlillar",
-        "full-name": "To'liq ism"
+        "full-name": "To'liq ism",
+        "comment": "Izoh"
+    },
+    "Recommendations": {
+        "back": "Orqaga",
+        "title": "Tahlil topshirishdan oldin tavsiyalar",
+        "altBack": "orqaga o'q",
+        "altFood": "ovqat",
+        "altSport": "sport",
+        "altAlcohol": "alkogol",
+        "altMedicine": "dori",
+        "fasting": "Och qoringa",
+        "fastingDesc": "Ko'pgina tahlillar ertalab och qoringa topshiriladi (8-12 soat oldin), faqat suv ichish mumkin",
+        "exercise": "Jismoniy mashqlar",
+        "exerciseDesc": "Tahlil oldidan bir kun ichida intensiv mashqlar va stressdan qoching",
+        "alcohol": "Alkogol va chekish",
+        "alcoholDesc": "48 soat davomida alkogol ichmang va tahlildan 1-2 soat oldin chekishdan saqlaning",
+        "medicine": "Dorilar",
+        "medicineDesc": "Dori qabul qilishni to'xtatish kerakmi yoki yo'qligini shifokoringiz bilan maslahat qiling",
+        "Recommendations_1": {
+            "instruction": {
+                "title": "Ko‘rsatma",
+                "description": "JKT (oshqozon-ichak traktining) turli ko‘rsatkichlari bo‘yicha tahlil - bu hazm qilish tizimining holatini baholash uchun muhim protsedura."
+            },
+            "preparation": {
+                "title": "Tahlilga tayyorgarlik",
+                "item1": "Diet: Tahlildan 3 kun oldin ichak chiqindisini bo‘yalishi mumkin bo‘lgan mahsulotlardan (qizil pishloq, mevalar, pomidorlar) saqlaning. Yuqori yog‘li mahsulotlar, achchiq va tutunlangan taomlarni cheklang.",
+                "item2": "Dori-darmonlar: Tahlilni topshirishdan bir necha kun oldin hazm qilishga ta'sir qiluvchi preparatlardan (purgativlar, fermentlar, faol uglerod) foydalanishni to‘xtating. Retsept bo‘yicha dorilarni qabul qilayotgan bo‘lsangiz, shifokor bilan maslahat qiling.",
+                "item3": "Alkogol va chekish: Tahlildan bir kun oldin alkogol va chekishdan tiyiling.",
+                "item4": "Gigiyena: Materialni yig‘ishdan oldin begona moddalar kirib ketmasligi uchun puxta gigiyenik tartiblarni amalga oshiring."
+            },
+            "collection": {
+                "title": "Material yig‘ish",
+                "item1": "Aptekada sotib olinadigan steril konteynerdan foydalaning.",
+                "item2": "Qaynatilgan qoshiq, bir martalik paxta yoki boshqa predmetlardan foydalanmang, chunki ular begona moddalarni (yuvish vositalari, dezinfektsiyalovchi vositalar) o‘z ichiga olishi mumkin.",
+                "item3": "Nam yoki boshqa suyuqliklarning namunaga tushishiga yo‘l qo‘ymang.",
+                "item4": "Ertalabki namunani yig‘ish optimaldir. Agar bu imkonsiz bo‘lsa, namunani 2-8 °C haroratda muzlatkichda saqlang, lekin 10-12 soatdan ortiq emas."
+            },
+            "procedure": {
+                "title": "Tahlilni topshirish jarayoni",
+                "item1": "Namunani steril konteynerga yig‘ing va ichki sirtiga tegmang.",
+                "item2": "Taxminan 1-2 choy qoshiq material tahlil uchun yetarli.",
+                "item3": "Konteynerni tezda laboratoriyaga yetkazing."
+            }
+        },
+        "Recommendations_2": {
+            "title": "14C-ureaz nafas olish testi - Helicobacter pylori uchun test",
+            "reliability": {
+                "title": "Ishonchlilik",
+                "item1": "14C-ureaz aerotesti juda yuqori sezgirlik darajasiga (95% gacha) va specificlikka (95-100%) ega bo'lib, uni nafaqat rus, balki evropa gastroenterologlari ham tavsiya qiladilar.",
+                "item2": "Faqat ushbu test, bakteriyaning mavjudligini aniqlash bilan birga, uning miqdorini ham belgilaydi."
+            },
+            "speed": {
+                "title": "Tezlik",
+                "item1": "Test 40-45 daqiqa ichida o'tkaziladi, uning natijalarini bemor 1 kun ichida oladi.",
+                "item2": "14C-ureaz testining natijasi bemorning ma'lumotlari normal va chegara qiymatlari bilan taqqoslangan grafik bilan birga chiqariladi, Helicobacter pylori bakteriyasining mavjudligi va miqdori aniqlanadi."
+            },
+            "methodology": {
+                "title": "Metodika va sharoitlar",
+                "item1": "Test butunlay xavfsiz va bemorga yoqimsiz hissiyotlar tug'dirmaydi.",
+                "item2": "14C-nafas olish testini ertalab och qorinda yoki taom qabul qilgandan 4-6 soat o'tgach kunduzgi vaqtida o'tkazish kerak."
+            },
+            "preparation": {
+                "title": "Tayyorlash",
+                "item1": "Antibiotiklar va vismut preparatlarini qo'llashdan 6 hafta o'tgach test o'tkazish.",
+                "item2": "Testdan 2-3 kun oldin spirtli ichimliklarni qabul qilmaslik.",
+                "item3": "Testdan ikki hafta oldin proton nasos inhibitörlarini yoki ikkinchi turdagi gidastin reseptor blokatorlarini qabul qilishni to'xtatish.",
+                "item4": "Bu qarorni davolovchi shifokor bilan kelishish."
+            },
+            "contraindications": {
+                "title": "Qarshi ko'rsatmalar",
+                "item1": "Mutlaqo qarshi ko'rsatmalar yo'q.",
+                "item2": "Agar oshqozonga operatsiya o'tkazilgan bo'lsa, test o'tkazish bo'yicha davolovchi shifokor bilan maslahatlashish."
+            },
+            "sampleCollection": {
+                "title": "Havo namunasi olish",
+                "step1": "Bemor och qorinda yoki oxirgi taom qabul qilganidan ikki soat o'tgach 14C-mochevina kapsulasini qabul qiladi. Tarkibi: 1 kapsula uchun: Faol moddasi: Uglerod-14 (suvli eritma ko'rinishida/14C/ mochevina) — 37 kBk. Qo'shimcha moddalar: Natriy pirofosfat (suvsiz holatda) — 200 mg, Qattiq jelatin kapsula — 40 mg. Qattiq jelatin kapsula tarkibi: Jelatin, temir oksidi (E172), titang dioksidi (E171), tozalangan suv. Qarshi ko'rsatmalar: *Preparatga gipersezgirlik. *Homiladorlik. *Emizish davri. * 14 yoshgacha bo'lgan bolalar.",
+                "step2": "Shundan keyin bemor 15-25 daqiqa tinch o'tirishi kerak.",
+                "step3": "Proba kartanjlari bilan o'ramani oching, bittasini olib, uning ustiga chiqarish nasadasini qo'ying. Shundan keyin bemor kartanjga havoni o'rtacha kuch bilan chiqarishi kerak. Bir nafasda havoni uzoqroq chiqarish kerak. Nafasni tiklash mumkin, lekin nafas olishga ruhsat berilmaydi! Kartanjdagi CO2-proba ko'rsatgichi o'ranjidan sariq rangga o'zgarguncha havoni chiqarishni to'xtating (bu taxminan 1-3 daqiqa vaqt oladi). Agar 3 daqiqa ichida ko'rsatgich to'liq sariq rangga o'zgarmasa, demak, CO2 qabul qilgich probaga to'lib qolganligi sababli chiqarishni to'xtating, chunki keyingi chiqarish analiz natijalariga ta'sir qilmaydi."
+            }
+        },
+        "Recommendations_3": {
+            "title": "Qonni olish uchun eslatma",
+            "generalTest": {
+                "title": "Umumiy qon tahlili uchun qoidalar.",
+                "item1": "Agar umumiy qon tahlilini topshirishingiz kerak bo'lsa, oxirgi ovqatlanish qon olishdan 3 soat oldin bo'lishi kerak. Nonushta shirin choy, yog'siz va sutsiz shirinliksiz kashadan iborat bo'lishi mumkin.",
+                "item2": "Qonni olishdan 1 soat oldin chekishdan tiyilish kerak.",
+                "item3": "Rentgenologik tadqiqotlar, fizioterapevtik protseduralardan keyin qon bermaslik kerak.",
+                "item4": "Qon ko'rsatkichlariga suv ichish ta'sir qilmaydi, shuning uchun suv ichish mumkin."
+            },
+            "biochemicalTest": {
+                "title": "Biokimyo, shakar, gormonlar uchun qon tahlili qoidalari.",
+                "item1": "Laboratoriya tadqiqotlari uchun qonni ertalab bo'sh qorinda olish tavsiya etiladi – oxirgi ovqatlanish va qon olish o'rtasida kamida 8 – 12 soat o'tishi kerak.",
+                "item2": "Oldingi kun kechki ovqatni kam miqdorda olish tavsiya etiladi. Tekshiruvdan 1 – 2 kun oldin ovqatlanish rejasidan yog'li, qovurilgan va alkogol mahsulotlarini chiqarish ma'qul.",
+                "item3": "Agar kecha ziyofat bo'lib o'tgan yoki hammom yoki sauna tashrif buyurilgan bo'lsa – laboratoriya tadqiqotini 1 – 2 kun kechiktirish kerak.",
+                "item4": "Qonni olishdan 1 soat oldin chekishdan tiyilish kerak.",
+                "item5": "Rentgenologik tadqiqotlar, fizioterapevtik protseduralardan keyin qon bermaslik kerak. Tadqiqot natijalariga ta'sir qiluvchi omillarni chiqarib tashlash zarur: jismoniy zo'rlik (yugurish, zinapoyadan chiqish), emotsional qo'zg'olish.",
+                "item6": "Protsedura oldidan 10 – 15 daqiqa dam olish va tinchlanish kerak.",
+                "item7": "Tadqiqot natijalari qabul qilingan dori-darmonlar yoki ularning metabolizm mahsulotlari ta'siri bilan buzilishi mumkinligini eslab qolish zarur, shuning uchun qon olish dori-darmonlarni qabul qilishdan oldin amalga oshiriladi. Tahlilni topshirishdan oldin, tadqiqotga tayyorlanish uchun dori-darmonlarni qabul qilishni cheklash imkoniyati haqida shifokor bilan maslahatlashish kerak.",
+                "item8": "Qon ko'rsatkichlarining kundalik ritmlari hisobga olinib, qayta-tadqiqotlarni bir xil vaqtda o'tkazish maqsadga muvofiqdir."
+            }
+        },
+        "Recommendations_4": {
+            "title": "Bemorga axlat yig'ish bo'yicha eslatma",
+            "exclusions": {
+                "title": "Tahlil yig'ishdan oldin 72 soat davomida quyidagilarni chiqarib tashlash kerak:",
+                "item1": "qorin bo'shatadigan preparatlarni qabul qilish;",
+                "item2": "rektal mumuqlar, moylarni kiritish;",
+                "item3": "antibiotiklarni, vago- va simpatikotropik vositalarni, kaolin, bariy sulfati, vismut preparatlari, faollashtirilgan ko'mir va boshqa sorbentlarni qabul qilish;",
+                "item4": "axlat rangiga ta'sir qiluvchi preparatlar;",
+                "item5": "pomidorlar, pomidor sharbati, pomidor pastasi, qizil sholg'om, o'rik, anor va boshqa sabzavotlar va mevalarni o'z tarkibida bo'yoq moddalarini o'z ichiga olgan mahsulotlarni iste'mol qilish;",
+                "item6": "klistirlar va oshqozon rentgenologik tadqiqotlaridan keyin;"
+            },
+            "collectionInstructions": {
+                "title": "Axlat yig'ish bo'yicha ko'rsatma",
+                "item1": "Hajmida 5-10 gramm (bir choy qoshiq, lekin konteyner hajmining 1/3 dan oshmasligi kerak) axlat namunasi olish, steril konteynerga (aptekada olinadi) solish va qopqog'ini yopish.",
+                "item2": "Axlat yig'ish uchun tibbiy idish yoki cho'tka ishlatish kerak. Vanna idishidan olish mumkin emas.",
+                "item3": "Idishni ishlatish uchun dezinfektsiyalovchi vositalardan foydalanish shart emas – yetarli, oldindan idishni yaxshilab sovun bilan yuving va bir necha marta oq suv bilan chayqab, keyin qaynoq suv bilan yuving va quriting.",
+                "item4": "Biomaterial yuborilishigacha muzlatgichda +2…+8°C haroratda saqlanishi kerak.",
+                "item5": "Material laboratoriyaga 2 soat ichida yetkazib berilishi kerak."
+            }
+        }
     }
 }

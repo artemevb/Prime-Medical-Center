@@ -1,4 +1,4 @@
-// Импорты
+"use client";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,6 @@ import telegram from "@/public/svg/social/telergam.svg";
 import facebook from "@/public/svg/social/facebook.svg";
 import youtube from "@/public/svg/social/youtube.svg";
 
-// Вспомогательная функция для обработки переносов строк
 const handleNewLines = (text) => {
   return text.split('\n').map((item, index) => (
     <span key={index}>
@@ -44,6 +43,76 @@ const FooterSection = ({ title, links, locale }) => (
 function Footer({ locale }) {
   const t = useTranslations();
 
+  const handleTelegramClick = async () => {
+    try {
+      const response = await fetch('https://pmc.result-me.uz/v1/counter/add?button=TELEGRAM_FOR_BLOG', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+      } else {
+      }
+    } catch (error) {
+      console.log('Error tracking Telegram button click:', error);
+    }
+  };
+
+  const handleTelegramiconClick = async () => {
+    try {
+      const response = await fetch('https://pmc.result-me.uz/v1/counter/add?button=TELEGRAM_FOOTER', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+      } else {
+      }
+    } catch (error) {
+      console.log('Error tracking Telegramicon button click:', error);
+    }
+  };
+
+  const handleInstagramiconClick = async () => {
+    try {
+      const response = await fetch('https://pmc.result-me.uz/v1/counter/add?button=INSTAGRAM_FOOTER', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+      } else {
+
+      }
+    } catch (error) {
+      console.log('Error tracking Telegram button click:', error);
+    }
+  };
+
+  const handleFacebookiconClick = async () => {
+    try {
+      const response = await fetch('https://pmc.result-me.uz/v1/counter/add?button=FACEBOOK_FOOTER', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+      }
+    } catch (error) {
+      console.log('Error tracking Facebook button click:', error);
+    }
+  };
+
+  const handleYoutubeiconClick = async () => {
+    try {
+      const response = await fetch('https://pmc.result-me.uz/v1/counter/add?button=YOUTUBE_FOOTER', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+      } else {
+      }
+    } catch (error) {
+      console.log('Error tracking Youtube button click:', error);
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center w-full ">
       <div className="flex flex-col w-full bg-[#F9F9F9] max-md:max-w-full ">
@@ -63,7 +132,14 @@ function Footer({ locale }) {
               <h4 className="text-[#000000] font-bold text-[20px] mdx:text-[24px] xl:text-[26px] pt-[30px] pb-[17px] max-w-[208px] mdx:max-w-[299px] xl:max-w-[393px]">
                 {t("Footer.telegram_info")}
               </h4>
-              <a href="https://t.me/prime_medical_center" target="_blank" className="bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] min-h-[50px] flex items-center justify-center mdx:max-w-[240px]">
+              {/* Updated Telegram Button with onClick Handler */}
+              <a
+                href="https://t.me/prime_medical_center"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleTelegramClick}
+                className="bg-[#00863E] hover:bg-[#398f61] w-full px-[35px] mdx:px-[20px] min-h-[50px] flex items-center justify-center mdx:max-w-[240px]"
+              >
                 <p className="text-white text-[14px] mdx:text-[16px] font-bold">Telegram</p>
               </a>
             </div>
@@ -85,7 +161,7 @@ function Footer({ locale }) {
                   />
                   <FooterSection
                     locale={locale}
-                    title={{ title: t("Prime Medical"), url: "prime-medical-center" }}
+                    title={{ title: ("Prime Medical") }}
                     links={[
                       { title: t("Footer.Navigation.about"), url: "about" },
                       { title: t("Footer.Navigation.doctors"), url: "doctors" },
@@ -123,7 +199,10 @@ function Footer({ locale }) {
                   {t("Footer.social")}
                 </h4>
                 <div className="mt-[18px] flex flex-row gap-[8px]">
-                  <a href="https://www.instagram.com/prime_medical_center/" target="_blank">
+                  <a href="https://www.instagram.com/prime_medical_center/" target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleInstagramiconClick}
+                  >
                     <Image
                       src={instagram}
                       width={50}
@@ -133,7 +212,10 @@ function Footer({ locale }) {
                       className="h-full w-full object-cover"
                     />
                   </a>
-                  <a href="https://t.me/prime_medical_center" target="_blank">
+                  <a href="https://t.me/prime_medical_center"
+                   target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleTelegramiconClick}>
                     <Image
                       src={telegram}
                       width={50}
@@ -143,7 +225,10 @@ function Footer({ locale }) {
                       className="h-full w-full object-cover"
                     />
                   </a>
-                  <a href="https://www.facebook.com/people/Prime-Medical-Center/100085066009600/" target="_blank">
+                  <a href="https://www.facebook.com/people/Prime-Medical-Center/100085066009600/"
+                   target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleFacebookiconClick}>
                     <Image
                       src={facebook}
                       width={50}
@@ -153,7 +238,10 @@ function Footer({ locale }) {
                       className="h-full w-full object-cover"
                     />
                   </a>
-                  <a href="https://youtube.com/@primemedicalcentertashkent?si=zsvKksa_R4qwUuPy" target="_blank">
+                  <a href="https://youtube.com/@primemedicalcentertashkent?si=zsvKksa_R4qwUuPy"
+                   target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleYoutubeiconClick}>
                     <Image
                       src={youtube}
                       width={50}
@@ -163,7 +251,6 @@ function Footer({ locale }) {
                       className="h-full w-full object-cover"
                     />
                   </a>
-
                 </div>
               </div>
             </div>
@@ -179,7 +266,7 @@ function Footer({ locale }) {
               <Link
                 target="_blank"
                 rel="noopener noreferrer" // Добавлено для безопасности
-                href="https://result-me.uz/"
+                href="https://result-me.uz/api/redirect?from=cG1j"
                 className="flex items-center"
               >
                 <Image
