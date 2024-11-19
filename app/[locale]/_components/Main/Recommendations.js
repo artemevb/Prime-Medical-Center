@@ -155,7 +155,7 @@ const SignUp = ({ locale }) => {
                 </Link>
                 
                 {/* Block 5 */}
-                <Link href={`/${locale}/recomendation-list?block=5`} className="w-full border p-[20px] md:p-[25px] flex flex-col min-h-[227px] md:min-h-[310px] xl:min-h-[250px] xl:p-[15px] relative 2xl:col-span-2 bg-[#00863E] text-white col-span-2 last:col-span xl:hover:ml-2 transition-all duration-300">
+                <Link href={`/${locale}/news`} className="w-full border p-[20px] md:p-[25px] flex flex-col min-h-[227px] md:min-h-[310px] xl:min-h-[250px] xl:p-[15px] relative 2xl:col-span-2 bg-[#00863E] text-white col-span-2 last:col-span xl:hover:ml-2 transition-all duration-300">
                     {/* Move ref to inner div */}
                     <div ref={block5Ref} className="w-full h-full flex flex-col justify-between">
                         <h5 className="text-[18px] md:text-[24px] xl:text-[26px] lh max-w-[283px] md:max-w-[323px] lg:max-w-full font-semibold"
