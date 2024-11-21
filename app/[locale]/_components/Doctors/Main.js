@@ -1,10 +1,21 @@
 "use client"
 import Image from "next/image"
 import { useTranslations } from "next-intl";
+import TypeService from '../Modal/TypeService'
+import { useState} from "react";
 
 export default function NewCard({ doctorData }) {
     const t = useTranslations('Doctors.Main');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
     return (
         <div className="w-full bg-white h-full flex flex-col justify-between px-[16px] max-w-[1440px] mx-auto">
             <div className="mdl:flex mdl:flex-row mdl:gap-[10px] xl:gap-[40px]">
@@ -58,12 +69,13 @@ export default function NewCard({ doctorData }) {
                         </div>
                     </div>
                     <div>
-                        <button className="w-full max-w-[223px] flex justify-center items-center bg-[#00863E] py-[12px] hover:bg-[#398f61] mt-[25px] xl:mt-[60px]">
+                        <button onClick={openModal} className="w-full max-w-[223px] flex justify-center items-center bg-[#00863E] py-[12px] hover:bg-[#398f61] mt-[25px] xl:mt-[60px]">
                             <p className="text-[#fff] font-extrabold">{t("button")}</p>
                         </button>
                     </div>
                 </div>
             </div>
+            {isModalOpen && <TypeService closeModal={closeModal} />}
         </div>
     )
 }
