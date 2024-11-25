@@ -8,19 +8,19 @@ export default function NewCardMain({ title, body, date, imageSrc }) {
 
     return (
         <div className="w-full bg-white h-full flex flex-col justify-between">
-            {/* Image Container with fixed aspect ratio */}
-            <div className="relative w-full aspect-w-4 aspect-h-3 overflow-hidden">
+
+            <div className="relative w-full aspect-w-4 aspect-h-4 overflow-hidden">
                 <Image
                     src={imageSrc}
-                    layout="fill" // Fill the container
-                    objectFit="cover" // Maintain aspect ratio, crop to fit
+                    layout="fill" 
+                    objectFit="cover" 
                     quality={100}
                     alt="News Image"
                     className="object-cover"
                 />
             </div>
             <div className="w-full flex flex-col flex-grow justify-between mt-[10px] xl:mt-[15px]">
-                {/* Combined Title and Subtitle with Line Clamp */}
+
                 <div className="line-clamp-4">
                     <h3 className="text-[20px] mdx:text-[24px] xl:text-[26px] font-bold mt-0 lh line-clamp-2">
                         {title}
@@ -30,7 +30,7 @@ export default function NewCardMain({ title, body, date, imageSrc }) {
                     </p>
                 </div>
 
-                {/* Button with Arrow */}
+
                 <div className="flex flex-row gap-[5px] items-center mt-[10px]">
                     <p className="text-[#00863E] xl:text-[20px] text-[16px] mdx:text-[18px] font-bold">
                         {t('button')}

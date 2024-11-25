@@ -8,33 +8,33 @@ import { useTranslations } from 'next-intl'
 export default function NewsComp({ locale }) {
     const t = useTranslations('News')
     const params = useParams()
-    const [news, setNews] = useState([]) // State for news
-    const [loading, setLoading] = useState(true) // Loading state
-    const [error, setError] = useState(null) // Error state
-    const [visibleNewsCount, setVisibleNewsCount] = useState(8) // State for the number of visible news
+    const [news, setNews] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    const [visibleNewsCount, setVisibleNewsCount] = useState(8)
 
     useEffect(() => {
         const fetchNews = async () => {
             try {
                 const response = await fetch('https://pmc.result-me.uz/v1/newness/get-all', {
                     headers: {
-                        'Accept-Language': locale // Use 'ru' or 'uz' based on current language
+                        'Accept-Language': locale
                     }
                 });
                 const result = await response.json();
 
-                // Log the entire response for debugging
+
                 console.log('API Response:', result);
 
                 if (response.ok) {
-                    // Transform data based on locale
+
                     const transformedNews = result.data.map(item => {
                         const firstOption = item.optionList[0] || {};
                         return {
                             slug: item.slug,
                             head: {
                                 title: firstOption.title || 'Без заголовка',
-                                body: firstOption.body || 'Без подзаголовка', // Ensure subtitle exists
+                                body: firstOption.body || 'Без подзаголовка',
                                 date: item.createdDate,
                                 photo: firstOption.photo ? { url: firstOption.photo.url } : null
                             }
@@ -45,7 +45,7 @@ export default function NewsComp({ locale }) {
                     throw new Error(result.message || 'Ошибка при загрузке данных');
                 }
             } catch (error) {
-                console.error('Fetch Error:', error); // Log any errors that occur during fetch
+                console.error('Fetch Error:', error);
                 setError('Не удалось загрузить данные. Попробуйте позже.');
             } finally {
                 setLoading(false);
@@ -56,11 +56,11 @@ export default function NewsComp({ locale }) {
     }, [locale]);
 
     const loadMoreNews = () => {
-        setVisibleNewsCount(prevCount => prevCount + 8) // Show 8 more news items
+        setVisibleNewsCount(prevCount => prevCount + 8)
     }
 
-    if (loading) return <div>Загрузка...</div> // Loading indicator
-    if (error) return <div>{error}</div> // Error message
+    if (loading) return <div>Загрузка...</div>
+    if (error) return <div>{error}</div>
 
     return (
         <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px]'>
@@ -74,7 +74,7 @@ export default function NewsComp({ locale }) {
                             title={item.head.title}
                             body={item.head.body}
                             date={item.head.date}
-                            imageSrc={item.head.photo?.url || '/path/to/default/image.png'} // Fallback image
+                            imageSrc={item.head.photo?.url || '/path/to/default/image.png'}
                         />
                     </a>
                 ))}

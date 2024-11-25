@@ -53,7 +53,7 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
             transition={{ type: "tween", duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Заголовок меню */}
+
             <div className="border-b py-4 flex">
               <div className="w-full flex justify-between mx-4">
                 <div className="flex justify-end gap-2 items-center w-full">
@@ -138,9 +138,9 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
               </div>
             </div>
 
-            {/* Навигация и Контактная информация */}
+
             <nav className="flex flex-col flex-1">
-              {/* Навигационные пункты */}
+
               <div>
                 {navOptions.map((option) => (
                   <a
@@ -159,7 +159,6 @@ const Menu = ({ menu, closeMenu, navOptions, locale }) => {
                 ))}
               </div>
 
-              {/* Контактная информация */}
               <div className="mt-auto">
                 <a href="tel:+998781131343" className="w-full flex items-center px-4 py-4">
                   <div className="mr-2">
