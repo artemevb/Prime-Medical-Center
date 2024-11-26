@@ -6,7 +6,6 @@ import Footer from "@/app/[locale]/_components/Footer/Footer";
 import Head from 'next/head';
 
 export async function generateMetadata({ params }) {
-
   const metadata = {
     title: "PRIME MEDICAL CENTER - бывший Guncha Med: гастроэнтерологический центр",
     description:
@@ -85,22 +84,18 @@ export default async function LocaleLayout({ children, params }) {
             <img src="https://mc.yandex.ru/watch/99047563" style={{ position: "absolute", left: "-9999px" }} alt="" />
           </div>
         </noscript>
-        {/* /Yandex.Metrika counter */}
 
-        {/* Google tag (gtag.js) */}
+        {/* Google Analytics (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8ZJVFVMJJ"></script>
         <script>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-R8ZJVFVMJJ');
           `}
         </script>
-        {/* /Google tag */}
       </Head>
-
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
