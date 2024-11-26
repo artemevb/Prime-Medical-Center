@@ -4,6 +4,7 @@ import { getMessages } from 'next-intl/server';
 import Header from "@/app/[locale]/_components/Header/Header";
 import Footer from "@/app/[locale]/_components/Footer/Footer";
 import Head from 'next/head';
+import Script from 'next/script'; // Импортируем Script
 
 export async function generateMetadata({ params }) {
   const metadata = {
@@ -61,9 +62,25 @@ export default async function LocaleLayout({ children, params }) {
         <link rel="canonical" href="https://pmcenter.uz" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="msapplication-TileColor" content="#ffffff" />
+      </Head>
+      <body>
+        {/* Добавляем скрипты Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-R8ZJVFVMJJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-R8ZJVFVMJJ');
+          `}
+        </Script>
 
         {/* Yandex.Metrika counter */}
-        <script type="text/javascript">
+        <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; 
             m[i].l=1*new Date(); 
@@ -78,25 +95,13 @@ export default async function LocaleLayout({ children, params }) {
                 webvisor:true
             });
           `}
-        </script>
+        </Script>
         <noscript>
           <div>
             <img src="https://mc.yandex.ru/watch/99047563" style={{ position: "absolute", left: "-9999px" }} alt="" />
           </div>
         </noscript>
 
-        {/* Google Analytics (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8ZJVFVMJJ"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-R8ZJVFVMJJ');
-          `}
-        </script>
-      </Head>
-      <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
           <main>{children}</main>
