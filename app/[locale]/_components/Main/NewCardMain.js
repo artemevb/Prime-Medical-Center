@@ -2,6 +2,9 @@
 import Image from "next/image"
 
 export default function NewCard({ key, title, date, imageSrc, specializationList }) {
+  // Ограничиваем список специализаций до двух элементов
+  const limitedSpecializationList = specializationList?.slice(0, 2);
+
   return (
     <div className="w-full bg-white h-full flex flex-col gap-2 justify-between">
       <div className="relative w-full aspect-w-4 aspect-h-5 overflow-hidden">
@@ -19,11 +22,11 @@ export default function NewCard({ key, title, date, imageSrc, specializationList
           {title}
         </h3>
         <div className="flex gap-[12px] justify-start flex-row flex-wrap">
-          {specializationList && specializationList.length > 0 ? (
-            specializationList.map((spec, index) => (
+          {limitedSpecializationList && limitedSpecializationList.length > 0 ? (
+            limitedSpecializationList.map((spec, index) => (
               <p key={index} className="text-[#9C9C9C] text-[16px]">
                 {spec.name}
-                {index < specializationList.length - 1 && <span className="text-[#EEEEEE] mx-2">|</span>}
+                {index < limitedSpecializationList.length - 1 && <span className="text-[#EEEEEE] mx-2">|</span>}
               </p>
             ))
           ) : (
@@ -34,3 +37,4 @@ export default function NewCard({ key, title, date, imageSrc, specializationList
     </div>
   )
 }
+

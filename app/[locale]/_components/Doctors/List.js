@@ -8,9 +8,9 @@ import { useTranslations } from "next-intl"
 export default function List({ locale }) {
     const t = useTranslations('Doctors')
     const params = useParams()
-    const [news, setNews] = useState([]) // Состояние для новостей
-    const [loading, setLoading] = useState(true) // Состояние загрузки
-    const [error, setError] = useState(null) // Состояние ошибки
+    const [news, setNews] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -24,12 +24,12 @@ export default function List({ locale }) {
                         headers: { 'Accept-Language': locale },
                     }
                 )
-                setNews(response.data.data) // Обновляем новости из ответа
+                setNews(response.data.data)
             } catch (error) {
                 console.error('Ошибка при получении данных:', error.message)
                 setError('Не удалось загрузить данные')
             } finally {
-                setLoading(false) // Выключаем индикатор загрузки
+                setLoading(false)
             }
         }
 
@@ -52,7 +52,7 @@ export default function List({ locale }) {
                             title={item.fullName || 'Нет имени'}
                             date={item.receptionTime || 'Нет данных'}
                             imageSrc={item.photo?.url || '/path/to/default-image.png'}
-                            specializationList={item.specializationList}
+                            specializationList={item.specializationList?.slice(0, 2) || []}
                         />
                     </a>
                 ))}

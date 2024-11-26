@@ -7,8 +7,6 @@ import Head from 'next/head';
 
 export async function generateMetadata({ params }) {
 
-
-
   const metadata = {
     title: "PRIME MEDICAL CENTER - бывший Guncha Med: гастроэнтерологический центр",
     description:

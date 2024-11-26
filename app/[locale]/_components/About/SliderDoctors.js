@@ -90,7 +90,7 @@ const DoctorsSlider = ({ locale }) => {
                         <Slider {...settings} className='h-auto w-full '>
                             {news.map((item, i) => {
                                 return (
-                                    <div className='px-[10px] xl:h-[520px] 3xl:h-[540px] max-h-full' key={i}>
+                                    <div className='px-[10px] xl:h-[520px] 3xl:h-[560px] max-h-full' key={i}>
                                         <a href={`/${locale}/doctors/${item.slug}`}>
                                             <NewCardMain
                                                 title={item.fullName || 'Нет имени'}
