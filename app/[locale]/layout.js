@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
       title: "PRIME MEDICAL CENTER - бывший Guncha Med: гастроэнтерологический центр",
       description:
         "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
-      images: ["https://pmcenter.uz/Prime_MedicalCenter.png"],
+      images: ["https://pmcenter.uz/images/Prime_MedicalCenter.png"],
     },
     robots: {
       index: true,
@@ -55,7 +55,7 @@ export default async function LocaleLayout({ children, params }) {
     "name": "PRIME MEDICAL CENTER",
     "alternateName": "Guncha Med",
     "url": "https://pmcenter.uz",
-    "logo": "https://pmcenter.uz/Prime_MedicalCenter.png",
+    "logo": "https://pmcenter.uz/images/Prime_MedicalCenter.png",
     "description": "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
     "address": {
       "@type": "PostalAddress",
