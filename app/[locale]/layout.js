@@ -4,7 +4,7 @@ import { getMessages } from 'next-intl/server';
 import Header from "@/app/[locale]/_components/Header/Header";
 import Footer from "@/app/[locale]/_components/Footer/Footer";
 import Head from 'next/head';
-import Script from 'next/script'; // Импортируем Script
+import Script from 'next/script';
 
 export async function generateMetadata({ params }) {
   const metadata = {
@@ -14,14 +14,14 @@ export async function generateMetadata({ params }) {
     keywords:
       "guncha med гастроэнтерологический центр prime medical center центр гастроэнтерологии клиника частная клиника анализы ташкент клиника ташкент",
     openGraph: {
-      title: "Главная",
+      title: "PRIME MEDICAL CENTER - бывший Guncha Med: гастроэнтерологический центр",
       description:
         "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
       url: "https://pmcenter.uz",
       type: "website",
       images: [
         {
-          url: "https://pmcenter.uz/Prime_MedicalCenter.png",
+          url: "https://pmcenter.uz/images/Prime_MedicalCenter.png",
           width: 800,
           height: 600,
           alt: "Prime Medical Center",
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Главная",
+      title: "PRIME MEDICAL CENTER - бывший Guncha Med: гастроэнтерологический центр",
       description:
         "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
       images: ["https://pmcenter.uz/Prime_MedicalCenter.png"],
@@ -48,6 +48,31 @@ export default async function LocaleLayout({ children, params }) {
   const { locale } = params;
   const messages = await getMessages(locale);
 
+  // Define structured data
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "PRIME MEDICAL CENTER",
+    "alternateName": "Guncha Med",
+    "url": "https://pmcenter.uz",
+    "logo": "https://pmcenter.uz/Prime_MedicalCenter.png",
+    "description": "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Узбекистан, Ташкент, Алмазарский район, ул.Беруни, д.1",
+      "addressLocality": "Ташкент",
+      "addressCountry": "UZ"
+    },
+    "telephone": "+998-78-113-13-43",
+    "openingHours": "Mo-Fr 08:00-22:00",
+    "sameAs": [
+      "https://t.me/prime_medical_center",
+      "https://www.instagram.com/prime_medical_center/",
+      "https://www.youtube.com/@primemedicalcentertashkent?si=zsvKksa_R4qwUuPy",
+      "https://www.facebook.com/people/Prime-Medical-Center/100085066009600/"
+    ]
+  };
+
   return (
     <html lang={locale}>
       <Head>
@@ -62,9 +87,15 @@ export default async function LocaleLayout({ children, params }) {
         <link rel="canonical" href="https://pmcenter.uz" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="msapplication-TileColor" content="#ffffff" />
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
       </Head>
       <body>
-        {/* Добавляем скрипты Google Analytics */}
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-R8ZJVFVMJJ"
           strategy="afterInteractive"
@@ -79,7 +110,7 @@ export default async function LocaleLayout({ children, params }) {
           `}
         </Script>
 
-        {/* Yandex.Metrika counter */}
+        {/* Yandex.Metrika */}
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; 
