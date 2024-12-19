@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
             type: "website",
             images: [
                 {
-                    url: "https://pmcenter.uz/Prime_MedicalCenter.png", // Замените на актуальную ссылку
+                    url: "https://pmcenter.uz/images/Prime_MedicalCenter.png",
                     width: 800,
                     height: 600,
                     alt: "Компания PRIME MEDICAL CENTER - 15 лет на рынке",
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
             card: "summary_large_image",
             title: "Компания PRIME MEDICAL CENTER - 15 лет на рынке",
             description: "PRIME MEDICAL CENTER - ведущий гастроэнтерологический центр Узбекистана. Широкий спектр медицинских услуг. Основан в 2006 году",
-            images: ["https://pmcenter.uz/Prime_MedicalCenter.png"],
+            images: ["https://pmcenter.uz/images/Prime_MedicalCenter.png"],
         },
         alternates: {
             canonical: `https://pmcenter.uz/${locale}/about`

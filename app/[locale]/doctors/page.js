@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
             type: "website",
             images: [
                 {
-                    url: "https://pmcenter.uz/Prime_MedicalCenter.png",
+                    url: "https://pmcenter.uz/images/Prime_MedicalCenter.png",
                     width: 800,
                     height: 600,
                     alt: "Страница врачей",
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
             card: "summary_large_image",
             title: "Врачи Ташкента",
             description: "Встречайте лучших врачей Ташкента! Наша клиника с гордостью представляет опытных специалистов, чьи знания и профессионализм признаны на международном уровне.",
-            images: ["https://pmcenter.uz/Prime_MedicalCenter.png"],
+            images: ["https://pmcenter.uz/images/Prime_MedicalCenter.png"],
         },
         alternates: {
             canonical: `https://pmcenter.uz/${locale}/doctors`

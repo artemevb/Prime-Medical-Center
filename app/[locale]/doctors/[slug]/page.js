@@ -35,7 +35,7 @@ export async function generateMetadata({ params }) {
                 type: 'profile',
             },
             alternates: {
-                canonical: `https://pmcenter.uz/${locale}/${slug}`
+                canonical: `https://pmcenter.uz/${locale}/doctors/${slug}`
             },
             robots: {
                 index: true,

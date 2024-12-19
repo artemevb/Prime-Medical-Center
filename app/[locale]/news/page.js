@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
             siteName: "Prime Medical Center",
             images: [
                 {
-                    url: "https://pmcenter.uz/Prime_MedicalCenter.png",
+                    url: "https://pmcenter.uz/images/Prime_MedicalCenter.png",
                     width: 800,
                     height: 600,
                     alt: "страница новостей",
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
             card: "summary_large_image",
             title: "Медицинский блог Prime Medical Center",
             description: "Исследуйте новые тенденции здравоохранения и секреты здоровья в нашем захватывающем медицинском блоге Prime Medical Center",
-            images: ["https://pmcenter.uz/Prime_MedicalCenter.png"]
+            images: ["https://pmcenter.uz/images/Prime_MedicalCenter.png"]
         },
         alternates: {
             canonical: `https://pmcenter.uz/${locale}/news`

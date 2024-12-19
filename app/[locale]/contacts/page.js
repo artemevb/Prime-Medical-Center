@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
             type: "website",
             images: [
                 {
-                    url: "https://pmcenter.uz/Prime_MedicalCenter.png", // Ссылка на изображение
+                    url: "https://pmcenter.uz/images/Prime_MedicalCenter.png",
                     width: 800,
                     height: 600,
                     alt: "Страница Контактов",
