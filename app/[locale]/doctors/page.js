@@ -34,9 +34,12 @@ export async function generateMetadata({ params }) {
             description: "Встречайте лучших врачей Ташкента! Наша клиника с гордостью представляет опытных специалистов, чьи знания и профессионализм признаны на международном уровне.",
             images: ["https://pmcenter.uz/Prime_MedicalCenter.png"],
         },
+        alternates: {
+            canonical: `https://pmcenter.uz/${locale}/doctors`
+        },
         robots: {
             index: true,
-            follow: true,
+            follow: true
         },
     };
 }

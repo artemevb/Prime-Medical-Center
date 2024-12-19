@@ -34,6 +34,13 @@ export async function generateMetadata({ params }) {
                 ],
                 type: 'profile',
             },
+            alternates: {
+                canonical: `https://pmcenter.uz/${locale}/${slug}`
+            },
+            robots: {
+                index: true,
+                follow: true
+            },
         };
     } catch (error) {
         console.error('Ошибка при получении данных для metadata:', error.message);
