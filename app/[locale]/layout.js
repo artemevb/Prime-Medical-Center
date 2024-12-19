@@ -35,9 +35,12 @@ export async function generateMetadata({ params }) {
         "Prime Medical Center - центр гастроэнтерологии и медицины. Оказываем широкий спектр услуг для вашего здоровья.",
       images: ["https://pmcenter.uz/images/Prime_MedicalCenter.png"],
     },
+    alternates: {
+      canonical: `https://pmcenter.uz`
+    },
     robots: {
       index: true,
-      follow: true,
+      follow: true
     },
   };
 
