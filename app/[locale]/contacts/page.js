@@ -23,6 +23,13 @@ export async function generateMetadata({ params }) {
                 },
             ],
         },
+        alternates: {
+            canonical: `https://pmcenter.uz/${locale}/contacts`
+        },
+        robots: {
+            index: true,
+            follow: true
+        },
     };
 }
 
