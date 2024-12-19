@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
             type: "website",
             images: [
                 {
-                    url: "https://pmcenter.uz/Prime_MedicalCenter.png",
+                    url: "https://pmcenter.uz/images/Prime_MedicalCenter.png",
                     width: 800,
                     height: 600,
                     alt: "Медицинские услуги: гастроэнтерология, эндоскопия и многое другое",
@@ -36,11 +36,14 @@ export async function generateMetadata({ params }) {
             card: "summary_large_image",
             title: "Медицинские услуги: гастроэнтерология, эндоскопия и многое другое",
             description: " Prime Medical Center - ваш партнер в здоровье. Услуги: гастроэнтерология, эндоскопия, аллергология, терапия, неврология, УЗИ, лабораторные исследования.",
-            images: ["https://pmcenter.uz/Prime_MedicalCenter.png"],
+            images: ["https://pmcenter.uz/images/Prime_MedicalCenter.png"],
+        },
+        alternates: {
+            canonical: `https://pmcenter.uz/${locale}/services`
         },
         robots: {
             index: true,
-            follow: true,
+            follow: true
         },
     };
 }
